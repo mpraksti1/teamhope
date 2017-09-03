@@ -14,7 +14,7 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     private usersService: UsersService,
-    private authService: AuthService) {}
+    private authService: AuthService ) {}
 
   ngOnInit() {
     // Retrieve posts from the API
@@ -24,8 +24,6 @@ export class SignUpComponent implements OnInit {
   }
 
   async onSubmitUser(form: NgForm) {
-    console.log(form.value);
-
     const email = form.value.email;
     const password = form.value.password;
     const firstName = form.value.firstName;

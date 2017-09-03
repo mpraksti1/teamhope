@@ -10,7 +10,7 @@ import {UsersService} from './shared/users.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
 import { AuthComponent } from './auth/auth.component';
-import {AuthService} from "./auth/auth.service";
+import {AuthService} from './auth/auth.service';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { OrganizationsComponent } from './organizations/organizations.component';

@@ -1,5 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <nav class="navbar">
+  <!--<div>{{ mobileNavShowing }}</div>-->
+  ß<div>{{ isUserLoggedIn }}</div>
+  <!--<div>{{ authService.token }}</div>-->
   <div class="navbar-brand">
     <a class="navbar-item" href="">
       <img src="../../assets/img/logo.png" width="95">
@@ -26,15 +29,14 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="field is-grouped">
-          <p class="control">
-            <a href class="button" (click)="onUserSignOut()">Sign Out</a>
+          <p class="control" *ngIf="isUserLoggedIn">
+            <a class="button" (click)="onUserSignOut()">Sign Out</a>
           </p>
-          <p class="control">
-            <a routerLink="/auth/sign-in" class="button">
-              <span>
-                Sign In/Out
-              </span>
-            </a>
+          <p class="control" *ngIf="!isUserLoggedIn">
+            <a routerLink="/auth/sign-in" class="button">Sign In</a>
+          </p>
+          <p class="control" *ngIf="!isUserLoggedIn">
+            <a routerLink="/auth/sign-up" class="button">Sign Up</a>
           </p>
           <p class="control">
             <a routerLink="/" class="button is-primary">

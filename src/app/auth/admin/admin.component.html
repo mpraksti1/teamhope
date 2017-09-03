@@ -1,0 +1,6 @@
+<form [formGroup]="form" (submit)="submit(form.value)">
+  <div *ngFor="let org of org.initiatives; let i = index">
+    <input type="checkbox" [formControl]="org"/> {{ org.initiatives[i].name}}
+  </div>
+  <button type=”submit”>Submit</button>
+</form>

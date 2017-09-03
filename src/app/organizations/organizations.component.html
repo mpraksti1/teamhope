@@ -1,0 +1,80 @@
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Organizations
+      </h1>
+      <h2 class="subtitle">
+        We work with
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-one-third">
+        <p>Get involed lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Phasellus nec iaculis mauris.</p>
+      </div>
+      <div class="column is-two-thirds">
+        <div class="field is-pulled-right">
+          <label class="label">Filter by initiatives</label>
+          <div class="control">
+            <div class="select">
+              <select>
+                <option>Select dropdown</option>
+                <option>With options</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-one-third" *ngFor="let organization of organizations; let i = index">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Image">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4">Organization number {{ i }}</p>
+                <p class="subtitle is-6"><small>Initiative is something</small></p>
+              </div>
+            </div>
+
+            <div class="content">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Phasellus nec iaculis mauris. We do good things for people.
+              <br>
+              <br>
+              <div class="field is-grouped">
+                <p class="control">
+                  <a class="button is-primary">
+                    Learn More
+                  </a>
+                </p>
+                <p class="control">
+                  <a class="button">
+                    Donate Now
+                  </a>
+                </p>
+              </div>
+              <small>11:09 PM - 1 Jan 2016</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

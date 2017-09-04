@@ -5,7 +5,7 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 
-mongoose.connect('localhost:27017/give-hope');
+mongoose.connect('mongodb://tommygeorge:hummerlb1@ds121674.mlab.com:21674/heroku_ds2czh4s');
 
 // Get our API routes
 const api = require('./server/routes/api');
@@ -30,7 +30,7 @@ app.get('*', (req, res) => {
 /**
  * Get port from environment and store in Express.
  */
-const port = process.env.PORT || '3000';
+const port = process.env.PORT || '8080';
 app.set('port', port);
 
 /**
@@ -41,4 +41,4 @@ const server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, () => console.log(`API running on localhost:${port}`));
+server.listen(port, () => console.log(`API running on ds121674.mlab.com:21674/heroku_ds2czh4s:${port}`));

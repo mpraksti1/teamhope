@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase';
 import { UsersService } from '../shared/users.service';
 
 @Injectable()
 
 export class AuthService {
-  token: string;
+  user: Observable<firebase.User>;
   uid: string;
 
   constructor(
+    private firebaseAuth: AngularFireAuth,
     private userService: UsersService,
-    private router: Router) {}
+    private router: Router) {
+      this.user = firebaseAuth.authState;
+    }
 
   async signupUser(user: any) {
     try {
-      await firebase.auth().createUserWithEmailAndPassword(user.email, user.password);
+      await this.firebaseAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
       await this.signInUser(user.email, user.password, false);
 
       const dbUser = {
@@ -32,35 +37,34 @@ export class AuthService {
             this.router.navigateByUrl('/');
           }
         );
+
     } catch (error) {
       console.error(error);
     }
   }
 
-  async signInUser(email: string, password: string, signingIn) {
-    try {
-      await firebase.auth().signInWithEmailAndPassword(email, password);
-      this.token = await firebase.auth().currentUser.getToken();
-      this.uid = await firebase.auth().currentUser.uid;
+async signInUser(email: string, password: string, signingIn) {
+  try {
+    await this.firebaseAuth.auth.signInWithEmailAndPassword(email, password);
 
-      if (signingIn) {
-        this.router.navigateByUrl('/');
+    this.user.subscribe(
+      (response) => {
+        console.log(response);
+        this.uid = response.uid;
       }
+    );
+
+    if (signingIn) {
+      this.router.navigateByUrl('/');
+    }
 
     } catch (error) {
       console.error(error);
     }
-  }
+}
 
   async signOutUser() {
-    await firebase.auth().signOut();
-
-    this.token = null;
-    this.uid = null;
+    await this.firebaseAuth.auth.signOut();
     this.router.navigateByUrl('/');
-  }
-
-  isAuthenticated() {
-    return this.token != null;
   }
 }

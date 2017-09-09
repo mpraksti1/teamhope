@@ -55,6 +55,12 @@ body {
     transform: scale(var(--headerScale));
     color: #fff;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    background: url("../../assets/img/bg5.jpg");
+    background-size: cover;
+
+    @media (min-width: 1008px) {
+      background: transparent;
+    }
 
     h1 {
       font-family: 'Roboto Slab';
@@ -86,11 +92,10 @@ body {
   margin-top: calc(100vh - 52px);
 
   .title {
-    font-family: 'Roboto Slab';
+    font-family: 'pt serif';
     line-height: 1.2;
-    font-size: 2.5vw;
+    font-size: 2.9vw;
     letter-spacing: 0.2vw;
-    text-transform: uppercase;
     margin-bottom: 0;
   }
 
@@ -99,30 +104,6 @@ body {
     margin: 0.1rem auto 2rem auto;
     font-size: 1.1rem;
   }
-
-  .decoritive-seperator {
-    position: relative;
-
-    .diamond {
-      display: block;
-      width: 13px;
-      height: 13px;
-      background: #00d1b2;
-      margin: 0 auto;
-      transform: rotate(45deg);
-      margin: 10px auto;
-    }
-
-    .line {
-      width: 80%;
-      height: 3px;
-      background: #00d1b2;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
 }
 
 .infographic {
@@ -130,9 +111,8 @@ body {
 }
 
 .how-to-help {
-  background: white;
+  background: #83a4d6;
   position: relative;
-  text-align: center;
 
   &::before {
     content: "";

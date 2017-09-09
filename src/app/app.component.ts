@@ -1,5 +1,4 @@
-import {Component, OnInit, ViewEncapsulation, DoCheck} from '@angular/core';
-import * as firebase from 'firebase';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {AuthService} from './auth/auth.service';
 
 @Component({
@@ -12,27 +11,15 @@ import {AuthService} from './auth/auth.service';
   ]
 })
 
-export class AppComponent implements OnInit, DoCheck {
+export class AppComponent implements OnInit {
   mobileNavShowing = false;
-  isUserLoggedIn = false;
 
   constructor(
-    private authService: AuthService) {
-  }
+    private authService: AuthService) {}
 
-  ngOnInit() {
-    firebase.initializeApp({
-      apiKey: 'AIzaSyAQJvCmhfDgrLr51mvVrEXTSXMSz81Ern8',
-      authDomain: 'givehope-8938a.firebaseapp.com',
-    });
-  }
-
-  ngDoCheck() {
-    this.isUserLoggedIn = this.authService.token !== null;
-  }
+  ngOnInit() {}
 
   onUserSignOut() {
-    console.log('Heres logged in status', this.isUserLoggedIn);
     this.authService.signOutUser();
   }
 

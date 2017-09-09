@@ -1,63 +1,84 @@
-import { Component } from '@angular/core';
-import {FormBuilder} from '@angular/forms'
+import {Component, OnInit} from '@angular/core';
+import {NgForm} from "@angular/forms";
+import {OrgService} from "../../shared/org.service";
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
-export class AdminComponent {
-  form = null;
-
+export class AdminComponent implements OnInit{
+  orgs: any[];
   org = {
     initiatives: [
       {
         name: 'Harm reduction',
         value: 1,
-        selected: false
+        selected: false,
+        description: '',
       },
       {
         name: 'Community Support',
         value: 2,
-        selected: false
+        selected: false,
+        description: '',
       },
       {
         name: 'Therapy',
         value: 3,
-        selected: false
+        selected: false,
+        description: '',
       },
       {
         name: 'Treatment',
         value: 4,
-        selected: false
+        selected: false,
+        description: '',
       },
       {
         name: 'Needle Exchanging',
         value: 5,
-        selected: false
+        selected: false,
+        description: '',
       },
       {
         name: 'Shelters',
         value: 6,
-        selected: false
+        selected: false,
+        description: '',
       },
     ]
   };
 
-  constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({
-      initiatives: this.buildInitiatives()
+  constructor(private orgService: OrgService) {}
+
+  ngOnInit() {
+    this.orgService.getOrgs().subscribe(data => {
+      console.log(data);
+      this.orgs = data.data;
     });
   }
 
-  get initiatives(){
-    return this.form.get('initiatives');
+  onOrgClicked(id) {
+    this.orgService.getOrgById(id).subscribe(data => {
+      console.log(data);;
+    });
   }
 
-  buildInitiatives() {
-    const arr = this.org.initiatives.map(skill => {
-      return this.fb.control(skill.selected);
-    });
-    return this.fb.array(arr);
+  onSubmit(form: NgForm) {
+    console.log(form);
+
+    const selected = this.org.initiatives
+        .filter(c => c.selected)
+          .map(m => ({value: m.value, description: m.description}));
+    form.value.initiatives = selected;
+
+    this.orgService.createNewOrg(form.value)
+      .subscribe(
+        (response) => {
+          console.log(response);
+          alert('Success!')
+        }
+      );
   }
 }

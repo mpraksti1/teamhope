@@ -2,12 +2,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const orgSchema = new Schema({
-  orgId: String,
-  email: {
-    type: String,
-    unique: true,
-  },
-  orgName: String
+    name: String,
+    descriptionLong: String,
+    descriptionShort: String,
+    founderName: String,
+    founderShortBio: String,
+    founderHeadShot: String,
+    initiatives: [],
+    orgPhoto: String
 });
 
 const Org = mongoose.model('Org', orgSchema);

@@ -41,21 +41,17 @@
       <div class="column is-one-third" *ngFor="let organization of organizations; let i = index">
         <div class="card">
           <div class="card-image">
-            <figure class="image is-4by3">
-              <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Image">
-            </figure>
+            <figure class="image is-4by3" [style.background]="'url(' + organization.orgPhoto + ')'"></figure>
           </div>
           <div class="card-content">
             <div class="media">
               <div class="media-content">
-                <p class="title is-4">Organization number {{ i }}</p>
-                <p class="subtitle is-6"><small>Initiative is something</small></p>
+                <p class="title is-4">{{ organization.name }}</p>
               </div>
             </div>
 
             <div class="content">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Phasellus nec iaculis mauris. We do good things for people.
+              {{ organization.descriptionShort }}
               <br>
               <br>
               <div class="field is-grouped">

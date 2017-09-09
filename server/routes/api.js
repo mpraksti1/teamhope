@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../../models/user');
+const Org = require('../../models/org')
 
 /* GET api listing. */
 router.post('/', (req, res) => {
@@ -32,7 +33,6 @@ router.post('/users', (req, res, next) => {
   )
 });
 
-// Get all posts
 router.get('/users', (req, res) => {
   User.find()
     .exec(function (err, students) {
@@ -49,4 +49,88 @@ router.get('/users', (req, res) => {
     });
 });
 
+router.get('/users/:id', (req, res) => {
+  const id = req.params.id;
+  console.log('ID IS: ', id);
+
+  User.find({'userId': id})
+    .exec(function (err, students) {
+      if (err) {
+        return res.status(500).json({
+          title: 'An error occurred',
+          error: err
+        });
+      }
+      res.status(200).json({
+        message: 'Success',
+        data: students
+      });
+    });
+});
+
+
+
+
+
+//ORG ROUTES
+
+
+
+
+
+
+router.post('/org', (req, res, next) => {
+  console.log('REQUEST BODY', req.body);
+
+  const org = new Org(req.body);
+
+  org.save(
+    (err, result) => {
+      if(err) {
+        return res.status(500).json({
+          title: 'Error',
+          error: err
+        })
+      }
+      res.status(201).json({
+        title: 'Success',
+        data: result
+      });
+    }
+  )
+});
+
+router.get('/org', (req, res) => {
+  Org.find()
+    .exec(function (err, orgs) {
+      if (err) {
+        return res.status(500).json({
+          title: 'An error occurred',
+          error: err
+        });
+      }
+      res.status(200).json({
+        message: 'Success',
+        data: orgs
+      });
+    });
+});
+
+router.get('/org/:id', (req, res) => {
+  const id = req.params.id;
+
+  Org.findOne({'_id': id})
+    .exec(function (err, org) {
+      if (err) {
+        return res.status(500).json({
+          title: 'An error occurred',
+          error: err
+        });
+      }
+      res.status(200).json({
+        message: 'Success',
+        data: org
+      });
+    });
+});
 module.exports = router;

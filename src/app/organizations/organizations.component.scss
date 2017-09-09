@@ -1,3 +1,8 @@
 .columns {
   flex-wrap: wrap;
 }
+
+figure.image {
+  background-size: cover!important;
+  background-position: center!important;
+}

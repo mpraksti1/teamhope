@@ -3,10 +3,6 @@ import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/Rx'
 
-//import { User } from "../models/user.model";
-
-
-
 @Injectable()
 export class OrgService {
 
@@ -23,6 +19,11 @@ export class OrgService {
   // Get all posts from the API
   getOrgs() {
     return this.http.get('/api/org')
+      .map(res => res.json());
+  }
+
+  getOrgById(id) {
+    return this.http.get(`api/org/${id}`)
       .map(res => res.json());
   }
 }

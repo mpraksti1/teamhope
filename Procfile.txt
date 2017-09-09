@@ -1,2 +1,1 @@
-web: node index.js
-myprocess: sh -c 'cd ./dist/ && exec name'
+web: node dist/index.js

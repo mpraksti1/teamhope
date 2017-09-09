@@ -5,7 +5,7 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 
-mongoose.connect('mongodb://tommygeorge:hummerlb1@ds121674.mlab.com:21674/heroku_ds2czh4s');
+mongoose.connect('mongodb://dev:123456789@ds121674.mlab.com:21674/heroku_ds2czh4s');
 
 // Get our API routes
 const api = require('./server/routes/api');
@@ -16,8 +16,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Point static path to dist
-app.use(express.static(path.join(__dirname, 'dist')));
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
 
 // Set our api routes
 app.use('/api', api);

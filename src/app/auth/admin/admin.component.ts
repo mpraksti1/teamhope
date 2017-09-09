@@ -58,12 +58,12 @@ export class AdminComponent implements OnInit{
       this.orgs = data.data;
     });
   }
-
-  onOrgClicked(id) {
-    this.orgService.getOrgById(id).subscribe(data => {
-      console.log(data);;
-    });
-  }
+  //
+  // onOrgClicked(id) {
+  //   this.orgService.getOrgById(id).subscribe(data => {
+  //     console.log(data);
+  //   });
+  // }
 
   onSubmit(form: NgForm) {
     console.log(form);

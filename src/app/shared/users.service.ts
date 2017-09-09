@@ -25,4 +25,9 @@ export class UsersService {
     return this.http.get('/api/users')
       .map(res => res.json());
   }
+
+  getUserById(id) {
+    return this.http.get(`/api/users/${id}`)
+      .map(res => res.json());
+  }
 }

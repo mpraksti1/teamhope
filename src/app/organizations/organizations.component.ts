@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {OrgService} from "../shared/org.service";
 
 @Component({
   selector: 'app-organizations',
@@ -8,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class OrganizationsComponent implements OnInit {
   organizations: any[];
 
-  constructor() {
-    this.organizations = [
-      1,2,3,4,5,6,7,8,9,0,
-    ];
+  constructor(private orgService: OrgService) {
+    this.orgService.getOrgs().subscribe(data => {
+      console.log(data);
+      this.organizations = data.data;
+    });
   }
 
   ngOnInit() {

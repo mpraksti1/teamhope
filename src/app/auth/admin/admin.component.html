@@ -1,6 +1,78 @@
-<form [formGroup]="form" (submit)="submit(form.value)">
-  <div *ngFor="let org of org.initiatives; let i = index">
-    <input type="checkbox" [formControl]="org"/> {{ org.initiatives[i].name}}
+<section class="section">
+  <div class="container">
+    <h1 class="app-header">Organization Creation</h1>
+    <div class="columns">
+      <div class="column is-6 is-offset-3">
+        <form (submit)="onSubmit(f)" #f="ngForm">
+          <div class="field">
+            <p class="control">
+              <label for="name">Name</label>
+              <input class="input" name="name" id="name" type="text" placeholder="name" ngModel>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control">
+              <label for="descriptionLong">Description(long)</label>
+              <input class="input" name="descriptionLong" id="descriptionLong" type="text" placeholder="descriptionLong" ngModel>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control">
+              <label for="descriptionShort">Description(short)</label>
+              <input class="input" name="descriptionShort" id="descriptionShort" type="text" placeholder="descriptionShort" ngModel>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control">
+              <label for="founderName">Founder Name</label>
+              <input class="input" name="founderName" id="founderName" type="text" placeholder="founderName" ngModel>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control">
+              <label for="founderShortBio">Founder Short Bio</label>
+              <input class="input" name="founderShortBio" id="founderShortBio" type="text" placeholder="founderShortBio" ngModel>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control">
+              <label for="founderHeadShot">Founder Head Shot</label>
+              <input class="input" name="founderHeadShot" id="founderHeadShot" type="text" placeholder="founderHeadShot" ngModel>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control">
+              <label for="orgPhoto">Org Photo</label>
+              <input class="input" name="orgPhoto" id="orgPhoto" type="text" placeholder="orgPhoto" ngModel>
+            </p>
+          </div>
+          <div *ngFor="let initiative of org.initiatives;">
+            <div class="field">
+              <div class="control">
+                <label class="checkbox">
+                  <input type="checkbox"
+                         [ngModelOptions]="{standalone: true}"
+                         [(ngModel)]="initiative.selected"/> {{initiative.name}}
+                </label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+              <textarea
+                class="textarea"
+                rows="4"
+                placeholder="Description of you initiative here"
+                *ngIf="initiative.selected"
+                [ngModelOptions]="{standalone: true}"
+                [(ngModel)]="initiative.description">
+              </textarea>
+              </div>
+            </div>
+          </div>
+          <button class="button is-primary" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
   </div>
-  <button type=”submit”>Submit</button>
-</form>
+</section>
+<div *ngFor="let org of orgs;" (click)="onOrgClicked(org._id)">{{org.name}}</div>

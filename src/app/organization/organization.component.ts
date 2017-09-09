@@ -10,7 +10,6 @@ export class OrganizationComponent implements OnInit {
   constructor(){
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

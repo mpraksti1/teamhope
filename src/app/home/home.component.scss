@@ -76,13 +76,12 @@ body {
         display: block;
         font-size: 9vw;
         letter-spacing: -0.3vw;
-        margin: -7px 0 0 0;
+        margin: -4px 0 0 0;
       }
     }
   }
 
   p {
-    font-family: 'Roboto Slab';
     width: 80%;
     margin: 0 auto;
   };
@@ -92,17 +91,7 @@ body {
   margin-top: calc(100vh - 52px);
 
   .title {
-    font-family: 'pt serif';
-    line-height: 1.2;
-    font-size: 2.9vw;
-    letter-spacing: 0.2vw;
-    margin-bottom: 0;
-  }
-
-  .subtitle {
-    max-width: 600px;
-    margin: 0.1rem auto 2rem auto;
-    font-size: 1.1rem;
+    letter-spacing: -0.3vw;
   }
 }
 

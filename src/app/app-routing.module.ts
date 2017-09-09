@@ -24,7 +24,7 @@ const routes: Routes = [
     component: OrganizationsComponent
   },
   {
-    path: 'organization',
+    path: 'organization/:id',
     component: OrganizationComponent
   },
   {

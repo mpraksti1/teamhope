@@ -1,1 +1,69 @@
-<div>Hi there!</div>
+<div class="header-image" [style.background-image]="'url(' + currOrg.orgPhoto + ')'"></div>
+<div class="container">
+  <section class="section less-padding">
+    <h1 class="title is-size-1-desktop is-size-3-touch">{{ currOrg.name }}</h1>
+    <br>
+    <p>{{ currOrg.descriptionLong}}</p>
+  </section>
+  <section class="section less-padding">
+    <h2 class="title is is-size-5">About the Founder:</h2>
+    <br>
+    <article class="media">
+      <figure class="media-left">
+        <p class="image is-96x96 founder-picture" style="border-radius: 50%;" [style.background-image]="'url(' + currOrg.founderHeadShot + ')'"></p>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>{{ currOrg.founderName }}</strong>
+            <br>
+            {{ currOrg.founderShortBio }}
+          </p>
+        </div>
+      </div>
+      <div class="media-right">
+      </div>
+    </article>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-size-3 has-text-centered">Initiatives:</h2>
+      <br>
+      <div class="columns">
+        <div class="column is-one-third" *ngFor="let initiative of currOrg.initiatives; let i = index">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3" [style.background-image]="'url(' + initiative.image + ')'"></figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-size-4">{{ initiative.title }}</p>
+                </div>
+              </div>
+
+              <div class="content">
+                {{ initiative.description }}
+                <br>
+                <br>
+                <div class="field is-grouped">
+                  <p class="control">
+                    <a class="button is-primary">
+                      Learn More
+                    </a>
+                  </p>
+                  <p class="control">
+                    <a class="button">
+                      Donate Now
+                    </a>
+                  </p>
+                </div>
+                <small>11:09 PM - 1 Jan 2016</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

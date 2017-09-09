@@ -5,3 +5,25 @@ nav {
   right: 0;
   z-index: 1;
 }
+
+section.section.less-padding {
+  padding: 1.5rem;
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif!important;
+  text-transform: uppercase!important;
+  display: block!important;
+  font-size: 5vw!important;
+  margin: -7px 0 0 0!important;
+}
+
+.subtitle {
+  max-width: 600px!important;
+  margin: 0.1rem auto 2rem auto!important;
+  font-size: 1.1rem!important;
+}
+
+.hero-body {
+  padding: 2rem 1.5rem;
+}

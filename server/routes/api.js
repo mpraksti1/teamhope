@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../../models/user');
-const Org = require('../../models/org')
+const Org = require('../../models/org');
 
 /* GET api listing. */
 router.post('/', (req, res) => {
@@ -17,6 +17,7 @@ router.post('/users', (req, res, next) => {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
   });
+
   user.save(
     (err, result) => {
       if(err) {
@@ -133,4 +134,33 @@ router.get('/org/:id', (req, res) => {
       });
     });
 });
+
+
+
+
+router.post('/rescources', (req, res, next) => {
+  console.log('REQUEST BODY', req.body);
+  const user = new User({
+    userId: req.body.userId,
+    email: req.body.email,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+  });
+  user.save(
+    (err, result) => {
+      if(err) {
+        return res.status(500).json({
+          title: 'Error',
+          error: err
+        })
+      }
+      res.status(201).json({
+        title: 'Success',
+        data: result
+      });
+    }
+  )
+});
+
+
 module.exports = router;

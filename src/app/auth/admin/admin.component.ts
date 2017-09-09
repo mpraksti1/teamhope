@@ -15,37 +15,49 @@ export class AdminComponent implements OnInit{
         name: 'Harm reduction',
         value: 1,
         selected: false,
+        title: '',
         description: '',
+        image: ''
       },
       {
         name: 'Community Support',
         value: 2,
         selected: false,
+        title: '',
         description: '',
+        image: ''
       },
       {
         name: 'Therapy',
         value: 3,
         selected: false,
+        title: '',
         description: '',
+        image: ''
       },
       {
         name: 'Treatment',
         value: 4,
         selected: false,
+        title: '',
         description: '',
+        image: ''
       },
       {
         name: 'Needle Exchanging',
         value: 5,
         selected: false,
+        title: '',
         description: '',
+        image: ''
       },
       {
         name: 'Shelters',
         value: 6,
         selected: false,
+        title: '',
         description: '',
+        image: ''
       },
     ]
   };
@@ -58,19 +70,25 @@ export class AdminComponent implements OnInit{
       this.orgs = data.data;
     });
   }
-  //
-  // onOrgClicked(id) {
-  //   this.orgService.getOrgById(id).subscribe(data => {
-  //     console.log(data);
-  //   });
-  // }
+
+  onOrgClicked(id) {
+    this.orgService.getOrgById(id).subscribe(data => {
+      console.log(data);
+    });
+  }
 
   onSubmit(form: NgForm) {
     console.log(form);
 
     const selected = this.org.initiatives
         .filter(c => c.selected)
-          .map(m => ({value: m.value, description: m.description}));
+          .map(m => ({
+            value: m.value,
+            description: m.description,
+            title: m.title,
+            image: m.image
+          }));
+
     form.value.initiatives = selected;
 
     this.orgService.createNewOrg(form.value)

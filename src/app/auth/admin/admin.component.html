@@ -1,51 +1,55 @@
 <section class="section">
   <div class="container">
-    <h1 class="app-header">Organization Creation</h1>
+    <h1 class="app-header title has-text-centered">Organization Creation</h1>
+    <br>
+    <br>
+
     <div class="columns">
       <div class="column is-6 is-offset-3">
         <form (submit)="onSubmit(f)" #f="ngForm">
           <div class="field">
             <p class="control">
               <label for="name">Name</label>
-              <input class="input" name="name" id="name" type="text" placeholder="name" ngModel>
+              <input class="input" name="name" id="name" type="text" ngModel>
             </p>
           </div>
           <div class="field">
             <p class="control">
               <label for="descriptionLong">Description(long)</label>
-              <input class="input" name="descriptionLong" id="descriptionLong" type="text" placeholder="descriptionLong" ngModel>
+              <input class="input" name="descriptionLong" id="descriptionLong" type="text" ngModel>
             </p>
           </div>
           <div class="field">
             <p class="control">
               <label for="descriptionShort">Description(short)</label>
-              <input class="input" name="descriptionShort" id="descriptionShort" type="text" placeholder="descriptionShort" ngModel>
+              <input class="input" name="descriptionShort" id="descriptionShort" type="text" ngModel>
             </p>
           </div>
           <div class="field">
             <p class="control">
               <label for="founderName">Founder Name</label>
-              <input class="input" name="founderName" id="founderName" type="text" placeholder="founderName" ngModel>
+              <input class="input" name="founderName" id="founderName" type="text" ngModel>
             </p>
           </div>
           <div class="field">
             <p class="control">
               <label for="founderShortBio">Founder Short Bio</label>
-              <input class="input" name="founderShortBio" id="founderShortBio" type="text" placeholder="founderShortBio" ngModel>
+              <input class="input" name="founderShortBio" id="founderShortBio" type="text" ngModel>
             </p>
           </div>
           <div class="field">
             <p class="control">
-              <label for="founderHeadShot">Founder Head Shot</label>
-              <input class="input" name="founderHeadShot" id="founderHeadShot" type="text" placeholder="founderHeadShot" ngModel>
+              <label for="founderHeadShot">Founder Head Shot(URL)</label>
+              <input class="input" name="founderHeadShot" id="founderHeadShot" type="text" ngModel>
             </p>
           </div>
           <div class="field">
             <p class="control">
-              <label for="orgPhoto">Org Photo</label>
-              <input class="input" name="orgPhoto" id="orgPhoto" type="text" placeholder="orgPhoto" ngModel>
+              <label for="orgPhoto">Org Photo(URL)</label>
+              <input class="input" name="orgPhoto" id="orgPhoto" type="text" ngModel>
             </p>
           </div>
+          <label>Initiatives:</label>
           <div *ngFor="let initiative of org.initiatives;">
             <div class="field">
               <div class="control">
@@ -56,23 +60,51 @@
                 </label>
               </div>
             </div>
-            <div class="field">
-              <div class="control">
-              <textarea
-                class="textarea"
-                rows="4"
-                placeholder="Description of you initiative here"
-                *ngIf="initiative.selected"
-                [ngModelOptions]="{standalone: true}"
-                [(ngModel)]="initiative.description">
-              </textarea>
+            <div *ngIf="initiative.selected">
+              <div class="field">
+                <div class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    placeholder="Initiative Title"
+                    [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="initiative.title">
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    placeholder="Initiative Image(URL)"
+                    [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="initiative.image">
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <textarea
+                  class="textarea"
+                  rows="4"
+                  placeholder="Description of you initiative here"
+                  [ngModelOptions]="{standalone: true}"
+                  [(ngModel)]="initiative.description">
+                  </textarea>
+                </div>
               </div>
             </div>
           </div>
-          <button class="button is-primary" type="submit">Submit</button>
+          <div class="field">
+            <div class="control">
+              <button class="button is-primary" type="submit">Submit</button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
+    <h1 class="app-header title has-text-centered">Organization Deletion</h1>
+    <br>
+    <br>
+    <div *ngFor="let org of orgs;" (click)="onOrgClicked(org._id)">{{org.name}}</div>
   </div>
 </section>
-<div *ngFor="let org of orgs;" (click)="onOrgClicked(org._id)">{{org.name}}</div>

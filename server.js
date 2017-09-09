@@ -5,7 +5,7 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 
-mongoose.connect('mongodb://dev:123456789@ds121674.mlab.com:21674/heroku_ds2czh4s');
+mongoose.connect('mongodb://dev:123456789@ds121222.mlab.com:21222/heroku_sddwlm5w');
 
 // Get our API routes
 const api = require('./server/routes/api');
@@ -41,4 +41,4 @@ const server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, () => console.log(`API running on ds121674.mlab.com:21674/heroku_ds2czh4s:${port}`));
+server.listen(port, () => console.log(`API running on ds121222.mlab.com:21222/heroku_sddwlm5w:${port}`));

@@ -162,4 +162,38 @@ router.post('/resources', (req, res, next) => {
     }
   )
 });
+
+router.get('/resources', (req, res) => {
+  Resource.find({})
+    .exec(function (err, orgs) {
+      if (err) {
+        return res.status(500).json({
+          title: 'An error occurred',
+          error: err
+        });
+      }
+      res.status(200).json({
+        message: 'Success',
+        data: orgs
+      });
+    });
+});
+
+router.get('/resources/:id', (req, res) => {
+  const id = req.params.id;
+
+  Resource.findOne({'_id': id})
+    .exec(function (err, org) {
+      if (err) {
+        return res.status(500).json({
+          title: 'An error occurred',
+          error: err
+        });
+      }
+      res.status(200).json({
+        message: 'Success',
+        data: org
+      });
+    });
+});
 module.exports = router;

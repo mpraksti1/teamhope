@@ -3,6 +3,7 @@ const router = express.Router();
 
 const User = require('../../models/user');
 const Org = require('../../models/org')
+const Resource = require('../../models/resource')
 
 /* GET api listing. */
 router.post('/', (req, res) => {
@@ -132,5 +133,33 @@ router.get('/org/:id', (req, res) => {
         data: org
       });
     });
+});
+
+//Resource API
+
+router.post('/resources', (req, res, next) => {
+  console.log('REQUEST BODY', req.body);
+  const resource = new Resource({
+    name: req.body.name,
+    orgId: req.body.orgId,
+    descriptionLong: req.body.descriptionLong,
+    descriptionShort: req.body.descriptionShort,
+    initiatives: req.body.initiatives,
+    Photo: req.body.Photo
+  });
+  resource.save(
+    (err, result) => {
+      if(err) {
+        return res.status(500).json({
+          title: 'Error',
+          error: err
+        })
+      }
+      res.status(201).json({
+        title: 'Success',
+        data: result
+      });
+    }
+  )
 });
 module.exports = router;

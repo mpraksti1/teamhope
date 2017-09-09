@@ -5,7 +5,7 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 
-mongoose.connect('mongodb://tommygeorge:hummerlb1@ds121674.mlab.com:21674/heroku_ds2czh4s');
+mongoose.connect('mongodb://dev:123456789@ds121674.mlab.com:21674/heroku_ds2czh4s');
 
 // Get our API routes
 const api = require('./server/routes/api');

@@ -9,48 +9,54 @@
         <form (submit)="onSubmit(f)" #f="ngForm">
           <div class="field">
             <p class="control">
-              <label for="name">Name</label>
+              <label for="name">Name:</label>
               <input class="input" name="name" id="name" type="text" ngModel>
             </p>
           </div>
           <div class="field">
             <p class="control">
-              <label for="descriptionLong">Description(long)</label>
-              <input class="input" name="descriptionLong" id="descriptionLong" type="text" ngModel>
+              <label for="descriptionLong">Description <small>(long)</small>:</label>
+              <textarea
+                class="textarea"
+                rows="4"
+                name="descriptionLong"
+                id="descriptionLong"
+                ngModel>
+              </textarea>
             </p>
           </div>
           <div class="field">
             <p class="control">
-              <label for="descriptionShort">Description(short)</label>
+              <label for="descriptionShort">Description <small>(short)</small>:</label>
               <input class="input" name="descriptionShort" id="descriptionShort" type="text" ngModel>
             </p>
           </div>
           <div class="field">
             <p class="control">
-              <label for="founderName">Founder Name</label>
+              <label for="founderName">Founder Name:</label>
               <input class="input" name="founderName" id="founderName" type="text" ngModel>
             </p>
           </div>
           <div class="field">
             <p class="control">
-              <label for="founderShortBio">Founder Short Bio</label>
+              <label for="founderShortBio">Founder Short Bio:</label>
               <input class="input" name="founderShortBio" id="founderShortBio" type="text" ngModel>
             </p>
           </div>
           <div class="field">
             <p class="control">
-              <label for="founderHeadShot">Founder Head Shot(URL)</label>
+              <label for="founderHeadShot">Founder Head Shot <small>(URL)</small>:</label>
               <input class="input" name="founderHeadShot" id="founderHeadShot" type="text" ngModel>
             </p>
           </div>
           <div class="field">
             <p class="control">
-              <label for="orgPhoto">Org Photo(URL)</label>
+              <label for="orgPhoto">Org Photo <small>(URL)</small>:</label>
               <input class="input" name="orgPhoto" id="orgPhoto" type="text" ngModel>
             </p>
           </div>
-          <label>Initiatives:</label>
-          <div *ngFor="let initiative of org.initiatives;">
+          <label>Initiatives <small>(max of three)</small>:</label>
+          <div class="field" *ngFor="let initiative of org.initiatives;">
             <div class="field">
               <div class="control">
                 <label class="checkbox">
@@ -94,6 +100,7 @@
               </div>
             </div>
           </div>
+          <br>
           <div class="field">
             <div class="control">
               <button class="button is-primary" type="submit">Submit</button>
@@ -102,9 +109,9 @@
         </form>
       </div>
     </div>
-    <h1 class="app-header title has-text-centered">Organization Deletion</h1>
-    <br>
-    <br>
-    <div *ngFor="let org of orgs;" (click)="onOrgClicked(org._id)">{{org.name}}</div>
+    <!--<h1 class="app-header title has-text-centered">Organization Deletion</h1>-->
+    <!--<br>-->
+    <!--<br>-->
+    <!--<div *ngFor="let org of orgs;" (click)="onOrgClicked(org._id)">{{org.name}}</div>-->
   </div>
 </section>

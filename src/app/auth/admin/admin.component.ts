@@ -9,6 +9,7 @@ import {OrgService} from "../../shared/org.service";
 })
 export class AdminComponent implements OnInit{
   orgs: any[];
+
   org = {
     initiatives: [
       {
@@ -82,12 +83,6 @@ export class AdminComponent implements OnInit{
 
     const selected = this.org.initiatives
         .filter(c => c.selected)
-          .map(m => ({
-            value: m.value,
-            description: m.description,
-            title: m.title,
-            image: m.image
-          }));
 
     form.value.initiatives = selected;
 

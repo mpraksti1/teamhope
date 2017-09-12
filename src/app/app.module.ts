@@ -9,6 +9,7 @@ import { HttpModule} from '@angular/http';
 import { UsersService } from './shared/users.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
+import { SqueezeBoxModule } from 'squeezebox';
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
@@ -41,7 +42,8 @@ import {OrgService} from "./shared/org.service";
     ReactiveFormsModule,
     ChartsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    SqueezeBoxModule,
   ],
   providers: [
     UsersService,

@@ -54,19 +54,16 @@
               {{ organization.descriptionShort }}
               <br>
               <br>
-              <div class="field is-grouped">
-                <p class="control">
-                  <a [routerLink]="['/organization', organization._id]" class="button is-primary">
-                    Learn More
-                  </a>
-                </p>
-                <p class="control">
-                  <a class="button">
-                    Donate Now
-                  </a>
-                </p>
-              </div>
-              <small>11:09 PM - 1 Jan 2016</small>
+
+              <a [routerLink]="['/organization', organization._id]" class="button is-primary is-fullwidth is-medium">
+                Learn More
+              </a>
+
+              <!--<p class="control">-->
+                <!--<a class="button">-->
+                  <!--Donate Now-->
+                <!--</a>-->
+              <!--</p>-->
             </div>
           </div>
         </div>

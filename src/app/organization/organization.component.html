@@ -1,10 +1,13 @@
 <div class="header-image" [style.background-image]="'url(' + currOrg?.orgPhoto + ')'"></div>
+
 <div class="container">
+
   <section class="section less-padding">
     <h1 class="title is-size-1-desktop is-size-3-touch">{{ currOrg?.name }}</h1>
     <br>
     <p>{{ currOrg?.descriptionLong}}</p>
   </section>
+
   <section class="section less-padding">
     <h2 class="title is is-size-5">About the Founder:</h2>
     <br>
@@ -25,6 +28,7 @@
       </div>
     </article>
   </section>
+
   <section class="section">
     <div class="container">
       <h2 class="title is-size-3 has-text-centered">Initiatives:</h2>
@@ -41,24 +45,15 @@
                   <p class="title is-size-4">{{ initiative.title }}</p>
                 </div>
               </div>
-
               <div class="content">
                 {{ initiative.description }}
                 <br>
                 <br>
-                <div class="field is-grouped">
+                <div class="field">
                   <p class="control">
-                    <a class="button is-primary">
-                      Learn More
-                    </a>
-                  </p>
-                  <p class="control">
-                    <a class="button">
-                      Donate Now
-                    </a>
+                    <a class="button is-primary is-fullwidth is-medium" (click)="toggleModal(initiative)">Donate</a>
                   </p>
                 </div>
-                <small>11:09 PM - 1 Jan 2016</small>
               </div>
             </div>
           </div>
@@ -66,4 +61,184 @@
       </div>
     </div>
   </section>
+</div>
+
+
+<div class="modal" [ngClass]="{'is-active': isModalActive}">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">{{ currInitiative?.title }}</p>
+      <button class="delete" aria-label="close" (click)="toggleModal(currInitiative)"></button>
+    </header>
+    <section class="modal-card-body section">
+      <div class="modal-section-one" *ngIf="modalStatus === 0">
+        <h1 class="title is-size-4">Your decision to give will directly impact others:</h1>
+        <br>
+        <p>Your donation is equal to {{ userDonation / 25 | number: '1.2-2' }} hours of boots on the ground</p>
+        <br>
+        <div class="columns is-mobile">
+          <div class="field column is-4">
+            <p class="control">
+              <input class="input" placeholder="Your donation here" [(ngModel)]="userDonation">
+            </p>
+          </div>
+          <div class="column is-narrow" (click)="incrementDonation(false, 10)">
+            <span class="icon">
+              <i class="fa fa-minus"></i>
+            </span>
+          </div>
+          <div class="column is-narrow" (click)="incrementDonation(true, 10)">
+            <span class="icon">
+              <i class="fa fa-plus"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-section-two" *ngIf="modalStatus === 1">
+        <form>
+          <squeezebox [multiple]="false">
+            <sb-item [collapsed]="false">
+              <sb-item-head class="title is-size-5">Payment Address</sb-item-head>
+              <sb-item-body>
+                <div class="sb-item-body-pad">
+                  <div class="columns">
+                    <div class="column is-6">
+                      <div class="field">
+                        <p class="control">
+                          <label for="first-name">First Name:</label>
+                          <input class="input" placeholder="placeholder">
+                        </p>
+                      </div>
+                    </div>
+                    <div class="column is-6">
+                      <div class="field">
+                        <p class="control">
+                          <label for="last-name">Last Name:</label>
+                          <input class="input" placeholder="placeholder">
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="columns">
+                    <div class="column is-12">
+                      <div class="field">
+                        <p class="control">
+                          <label>Address:</label>
+                          <input class="input" placeholder="placeholder">
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="columns">
+                    <div class="column is-8">
+                      <div class="field">
+                        <p class="control">
+                          <label>City:</label>
+                          <input class="input" placeholder="placeholder">
+                        </p>
+                      </div>
+                    </div>
+                    <div class="column is-4">
+                      <div class="field">
+                        <p class="control">
+                          <label>State:</label>
+                          <select class="input" placeholder="placeholder">
+                            <option value="montana">Montana</option>
+                            <option value="wisconsin">Wisconsin</option>
+                          </select>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="columns">
+                    <div class="column is-5">
+                      <div class="field">
+                        <p class="control">
+                          <label>Zip:</label>
+                          <input class="input" placeholder="placeholder">
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </sb-item-body>
+            </sb-item>
+            <sb-item>
+              <sb-item-head class="title is-size-5">Payment Info</sb-item-head>
+              <sb-item-body>
+                <div class="sb-item-body-pad">
+                  <div class="columns">
+                    <div class="column is-12">
+                      <div class="field">
+                        <p class="control">
+                          <label for="first-name">Card Number:</label>
+                          <input class="input" placeholder="placeholder" type="text" >
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="columns">
+                    <div class="column is-2">
+                      <div class="field">
+                        <p class="control">
+                          <label for="first-name">Exp.</label>
+                          <select class="input" placeholder="placeholder">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                          </select>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="column is-2">
+                      <div class="field">
+                        <p class="control">
+                          <label for="first-name">&nbsp;</label>
+                          <select class="input" placeholder="placeholder">
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                          </select>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="column is-3">
+                      <div class="field">
+                        <p class="control">
+                          <label for="first-name">CVG:</label>
+                          <input class="input" placeholder="placeholder" name="first-name" id="first-name" type="text" ngModel>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </sb-item-body>
+            </sb-item>
+          </squeezebox>
+        </form>
+      </div>
+      <div class="modal-section-three" *ngIf="modalStatus === 2">
+        <h1 class="title is-size-3">Confirm your donation</h1>
+        <br>
+        <p>Send ${{ userDonation }} to {{ currOrg?.name }} for their initiative, {{ currInitiative?.title }}?</p>
+        <br>
+        <a href="" class="button is-primary">Confirm</a>
+      </div>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button" *ngIf="modalStatus >= 1" (click)="modalNavigator(false)">Back</button>
+      <button class="button is-primary" (click)="modalNavigator(true)" [disabled]="modalStatus === 2">Next</button>
+    </footer>
+  </div>
 </div>

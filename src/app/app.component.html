@@ -13,20 +13,20 @@
 
   <div class="navbar-menu" [ngClass]="{ 'is-active': mobileNavShowing }">
     <div class="navbar-start">
-        <a class="navbar-item " routerLink="/">
+        <a class="navbar-item " routerLink="/" (click)="toggleMobileMenu()">
           Home
         </a>
-        <a class="navbar-item " routerLink="/organizations">
+        <a class="navbar-item " routerLink="/organizations" (click)="toggleMobileMenu()">
           Orgs
         </a>
-        <a class="navbar-item " href="/">
+        <a class="navbar-item " href="/" (click)="toggleMobileMenu()">
           About us
         </a>
     </div>
     <div class="navbar-end">
       <div class="field is-grouped" *ngIf="!(authService.user | async)">
-        <a class="navbar-item" routerLink="/auth/sign-in">Sign In</a>
-        <a class="navbar-item" routerLink="/auth/sign-up">Sign Up</a>
+        <a class="navbar-item" routerLink="/auth/sign-in" (click)="toggleMobileMenu()">Sign In</a>
+        <a class="navbar-item" routerLink="/auth/sign-up" (click)="toggleMobileMenu()">Sign Up</a>
       </div>
       <div class="navbar-item has-dropdown is-hoverable" *ngIf="authService.user | async">
         <a class="navbar-link  is-active">
@@ -34,7 +34,7 @@
         </a>
         <div class="navbar-dropdown">
           <a class="navbar-item" (click)="onUserSignOut()">Sign Out</a>
-          <a class="navbar-item" routerLink="/auth/admin">Add an Org</a>
+          <a class="navbar-item" routerLink="/auth/admin" (click)="toggleMobileMenu()">Add an Org</a>
         </div>
       </div>
     </div>

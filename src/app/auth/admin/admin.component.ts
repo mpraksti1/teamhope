@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {OrgService} from "../../shared/org.service";
+import {InitiativeService} from "../../shared/initiative.service";
+import {Initiative} from "../../models/initiative.model";
 
 @Component({
   selector: 'app-admin',
@@ -63,7 +65,9 @@ export class AdminComponent implements OnInit{
     ]
   };
 
-  constructor(private orgService: OrgService) {}
+  constructor(
+    private orgService: OrgService,
+    private  initiativeService: InitiativeService) {}
 
   ngOnInit() {
     this.orgService.getOrgs().subscribe(data => {
@@ -79,18 +83,25 @@ export class AdminComponent implements OnInit{
   }
 
   onSubmit(form: NgForm) {
-    console.log(form);
-
+    let orgId = null;
     const selected = this.org.initiatives
-        .filter(c => c.selected)
-
-    form.value.initiatives = selected;
+        .filter(c => c.selected);
 
     this.orgService.createNewOrg(form.value)
       .subscribe(
         (response) => {
           console.log(response);
-          alert('Success!')
+          orgId = response.data._id;
+
+          selected.forEach((initiative: any) => {
+            initiative.orgId = orgId;
+            this.initiativeService.createNewInitiative(initiative)
+              .subscribe(
+                (resp) => {
+                  console.log(resp);
+                }
+              );
+          });
         }
       );
   }

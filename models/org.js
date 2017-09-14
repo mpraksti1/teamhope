@@ -8,7 +8,6 @@ const orgSchema = new Schema({
     founderName: String,
     founderShortBio: String,
     founderHeadShot: String,
-    initiatives: [],
     orgPhoto: String
 });
 

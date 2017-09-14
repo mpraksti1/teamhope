@@ -6,7 +6,6 @@ export class Organization {
     public founderName: string,
     public founderShortBio: string,
     public founderHeadShot: string,
-    public initiatives: any[],
     public orgPhoto: string,
     public dateLogged?: any ) {}
 }

@@ -6,5 +6,6 @@ export class Initiative {
     public title: string,
     public description: string,
     public image: string,
+    public orgId: string,
     public dateLogged?: any ) {}
 }

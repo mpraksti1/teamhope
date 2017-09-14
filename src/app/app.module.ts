@@ -21,6 +21,8 @@ import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import {OrgService} from "./shared/org.service";
+import {InitiativeService} from "./shared/initiative.service";
+import {DonationService} from "./shared/donation.service";
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import {OrgService} from "./shared/org.service";
   providers: [
     UsersService,
     AuthService,
-    OrgService
+    OrgService,
+    InitiativeService,
+    DonationService,
   ],
   bootstrap: [AppComponent]
 })

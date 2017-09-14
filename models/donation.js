@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const donationSchema = new Schema({
     userId: String,
     orgId: String,
-    initiativeId: String
+    initiativeId: String,
+    amount: Number
 });
 
 const Donation = mongoose.model('Donation', donationSchema);

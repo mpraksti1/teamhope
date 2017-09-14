@@ -3,6 +3,8 @@ const router = express.Router();
 
 const User = require('../../models/user');
 const Org = require('../../models/org');
+const Initiative = require('../../models/initiative');
+const Donation = require('../../models/donation');
 
 /* GET api listing. */
 router.post('/', (req, res) => {
@@ -74,12 +76,6 @@ router.get('/users/:id', (req, res) => {
 
 
 //ORG ROUTES
-
-
-
-
-
-
 router.post('/org', (req, res, next) => {
   console.log('REQUEST BODY', req.body);
 
@@ -138,6 +134,95 @@ router.get('/org/:id', (req, res) => {
 
 
 
+
+//Initiative Routes
+router.post('/initiative', (req, res, next) => {
+  console.log('REQUEST BODY', req.body);
+
+  const initiative = new Initiative(req.body);
+
+  initiative.save(
+    (err, result) => {
+      if(err) {
+        return res.status(500).json({
+          title: 'Error',
+          error: err
+        })
+      }
+      res.status(201).json({
+        title: 'Success',
+        data: result
+      });
+    }
+  )
+});
+
+router.get('/initiative/:orgId', (req, res) => {
+  const orgId = req.params.orgId;
+  Initiative.find({'orgId' : id})
+    .exec(function (err, orgs) {
+      if (err) {
+        return res.status(500).json({
+          title: 'An error occurred',
+          error: err
+        });
+      }
+      res.status(200).json({
+        message: 'Success',
+        data: orgs
+      });
+    });
+});
+
+
+
+
+
+// Donation Routes
+router.post('/donation', (req, res, next) => {
+  console.log('REQUEST BODY', req.body);
+
+  const donation = new Donation(req.body);
+
+  donation.save(
+    (err, result) => {
+      if(err) {
+        return res.status(500).json({
+          title: 'Error',
+          error: err
+        })
+      }
+      res.status(201).json({
+        title: 'Success',
+        data: result
+      });
+    }
+  )
+});
+
+router.get('/donation/:userId', (req, res) => {
+  const userId = req.params.userId;
+
+  Donation.find({'userId' : userId})
+    .exec(function (err, donations) {
+      if (err) {
+        return res.status(500).json({
+          title: 'An error occurred',
+          error: err
+        });
+      }
+      res.status(200).json({
+        message: 'Success',
+        data: donations
+      });
+    });
+});
+
+
+
+
+
+// Rescource Routes
 router.post('/rescources', (req, res, next) => {
   console.log('REQUEST BODY', req.body);
   const user = new User({

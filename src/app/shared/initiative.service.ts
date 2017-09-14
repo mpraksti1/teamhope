@@ -16,7 +16,7 @@ export class InitiativeService {
       .catch((error: Response) => Observable.throw(error.json));
   }
 
-  getInitiativeById(id) {
+  getInitiativesById(id) {
     return this.http.get(`api/initiative/${id}`)
       .map(res => res.json());
   }

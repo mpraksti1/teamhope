@@ -34,7 +34,7 @@
       <h2 class="title is-size-3 has-text-centered">Initiatives:</h2>
       <br>
       <div class="columns">
-        <div class="column is-one-third" *ngFor="let initiative of currOrg?.initiatives; let i = index">
+        <div class="column is-one-third" *ngFor="let initiative of initiatives; let i = index">
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3" [style.background-image]="'url(' + initiative.image + ')'"></figure>
@@ -233,7 +233,7 @@
         <br>
         <p>Send ${{ userDonation }} to {{ currOrg?.name }} for their initiative, {{ currInitiative?.title }}?</p>
         <br>
-        <a href="" class="button is-primary">Confirm</a>
+        <a class="button is-primary" (click)="onDonate(currInitiative._id)">Confirm</a>
       </div>
     </section>
     <footer class="modal-card-foot">

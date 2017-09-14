@@ -11,7 +11,7 @@ export class DonationService {
   createNewDonation(donation) {
     const body = JSON.stringify(donation);
     const headers = new Headers({ 'Content-Type': 'application/json' });
-    return this.http.post('/api/org', body, { headers: headers })
+    return this.http.post('/api/donation', body, { headers: headers })
       .map(data => data.json())
       .catch((error: Response) => Observable.throw(error.json));
   }

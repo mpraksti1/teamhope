@@ -20,9 +20,9 @@ import { AdminComponent } from './auth/admin/admin.component';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import {OrgService} from "./shared/org.service";
-import {InitiativeService} from "./shared/initiative.service";
-import {DonationService} from "./shared/donation.service";
+import {OrgService} from './shared/org.service';
+import {InitiativeService} from './shared/initiative.service';
+import {DonationService} from './shared/donation.service';
 
 @NgModule({
   declarations: [

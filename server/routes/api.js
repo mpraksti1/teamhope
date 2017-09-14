@@ -159,7 +159,7 @@ router.post('/initiative', (req, res, next) => {
 
 router.get('/initiative/:orgId', (req, res) => {
   const orgId = req.params.orgId;
-  Initiative.find({'orgId' : id})
+  Initiative.find({'orgId' : orgId})
     .exec(function (err, orgs) {
       if (err) {
         return res.status(500).json({

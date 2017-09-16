@@ -8,6 +8,9 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { OrganizationsComponent } from './organizations/organizations.component';
 import { OrganizationComponent } from './organization/organization.component';
 import { AdminComponent } from './auth/admin/admin.component';
+import { ProfileComponent } from './profile/profile.component';
+import { MyMetricsComponent } from './profile/my-metrics/my-metrics.component';
+import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component'
 
 const routes: Routes = [
   {
@@ -35,6 +38,14 @@ const routes: Routes = [
       { path: 'sign-in', component: SignInComponent },
       { path: 'sign-up', component: SignUpComponent },
       { path: 'admin', component: AdminComponent },
+    ]
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    children: [
+      { path: 'my-metrics', component: MyMetricsComponent },
+      { path: 'edit-profile', component: ProfileEditComponent },
     ]
   }
 ];

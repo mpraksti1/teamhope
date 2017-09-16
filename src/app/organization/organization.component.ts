@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {OrgService} from '../shared/org.service';
+import { OrgService } from '../shared/org.service';
 import { ActivatedRoute } from '@angular/router';
-import {Initiative} from '../models/initiative.model';
-import {InitiativeService} from '../shared/initiative.service';
+import { Initiative } from '../models/initiative.model';
+import { InitiativeService } from '../shared/initiative.service';
 import { AngularFireAuth } from 'angularfire2/auth';
-import {DonationService} from '../shared/donation.service';
+import { DonationService } from '../shared/donation.service';
 
 @Component({
   selector: 'app-organization',
@@ -72,6 +72,8 @@ export class OrganizationComponent implements OnInit {
 
   onDonate(initId) {
     const donation = {
+      orgName: this.currOrg.name,
+      initiativeName: this.currInitiative.title,
       userId: this.user.uid,
       orgId: this.orgId,
       initiativeId: initId,

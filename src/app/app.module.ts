@@ -23,6 +23,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import {OrgService} from './shared/org.service';
 import {InitiativeService} from './shared/initiative.service';
 import {DonationService} from './shared/donation.service';
+import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
+import { MyMetricsComponent } from './profile/my-metrics/my-metrics.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,10 @@ import {DonationService} from './shared/donation.service';
     SignUpComponent,
     OrganizationsComponent,
     OrganizationComponent,
-    AdminComponent
+    AdminComponent,
+    ProfileComponent,
+    ProfileEditComponent,
+    MyMetricsComponent
   ],
   imports: [
     BrowserModule,

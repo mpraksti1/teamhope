@@ -95,12 +95,8 @@ body {
   }
 }
 
-.infographic {
-  width: 100%;
-}
-
 .how-to-help {
-  background: #83a4d6;
+  background: #c13b33;
   position: relative;
 
   &::before {
@@ -112,6 +108,8 @@ body {
   h1 {
     margin-bottom: 0px;
   }
+
+  small { color: #fff; }
 }
 
 .our-partners {

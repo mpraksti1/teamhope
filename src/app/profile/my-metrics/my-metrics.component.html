@@ -1,0 +1,26 @@
+<section class="section chart-section" *ngIf="isDataAvailable">
+  <h1 class="title is-size-4">Who have I donated to?</h1>
+  <br>
+  <div style="display: block; max-width: 500px; margin: 0 auto">
+    <canvas baseChart
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [options]="pieChartOptions"
+            [chartType]="pieChartType"
+            [colors]="colors">
+    </canvas>
+  </div>
+</section>
+<section class="section chart-section" *ngIf="isDataAvailable">
+  <h1 class="title is-size-4">How much have I donated?</h1>
+  <br>
+  <div style="display: block; max-width: 500px; margin: 0 auto">
+    <canvas baseChart
+            [data]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [chartType]="barChartType"
+            [colors]="colors">
+    </canvas>
+  </div>
+</section>

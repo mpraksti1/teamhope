@@ -3,8 +3,9 @@ import { OrgService } from '../shared/org.service';
 import { ActivatedRoute } from '@angular/router';
 import { Initiative } from '../models/initiative.model';
 import { InitiativeService } from '../shared/initiative.service';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { DonationService } from '../shared/donation.service';
+import {AuthService} from '../auth/auth.service';
+
 
 @Component({
   selector: 'app-organization',
@@ -20,18 +21,21 @@ export class OrganizationComponent implements OnInit {
   initiatives: any[];
   userDonation = 10;
   modalStatus = 0;
+  isLoading: boolean = false;
   private sub: any;
 
   constructor(
     private orgService: OrgService,
     private initiativeService: InitiativeService,
     private donationService: DonationService,
-    private angularFire: AngularFireAuth,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authService: AuthService,
   ) {}
 
   ngOnInit() {
-    this.user = this.angularFire.auth.currentUser;
+    this.authService.user.subscribe(data => {
+      this.user = data;
+    });
     this.sub = this.route.params.subscribe(params => {
       this.orgId = params['id']; // (+) converts string 'id' to a number
 
@@ -50,6 +54,10 @@ export class OrganizationComponent implements OnInit {
   }
 
   toggleModal(initiative) {
+    if (this.isModalActive) {
+      this.modalStatus = 0;
+    }
+
     this.isModalActive = !this.isModalActive;
     this.currInitiative = initiative;
   }
@@ -71,6 +79,9 @@ export class OrganizationComponent implements OnInit {
   }
 
   onDonate(initId) {
+    this.isLoading = true;
+    this.modalNavigator(true);
+
     const donation = {
       orgName: this.currOrg.name,
       initiativeName: this.currInitiative.title,
@@ -83,6 +94,10 @@ export class OrganizationComponent implements OnInit {
     this.donationService.createNewDonation(donation)
       .subscribe(
         (response) => {
+          this.currInitiative = null;
+          setTimeout(() => {
+            this.isLoading = false;
+          }, 1000)
           console.log(response);
         }
       );

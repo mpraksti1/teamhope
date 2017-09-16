@@ -33,26 +33,30 @@
     <div class="container">
       <h2 class="title is-size-3 has-text-centered">Initiatives:</h2>
       <br>
-      <div class="columns">
+      <div class="columns is-multiline">
         <div class="column is-one-third" *ngFor="let initiative of initiatives; let i = index">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3" [style.background-image]="'url(' + initiative.image + ')'"></figure>
-            </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-content">
-                  <p class="title is-size-4">{{ initiative.title }}</p>
+          <div class="tile is-ancestor">
+            <div class="tile">
+              <div class="card tile is-child">
+                <div class="card-image">
+                  <figure class="image is-4by3" [style.background-image]="'url(' + initiative.image + ')'"></figure>
                 </div>
-              </div>
-              <div class="content">
-                {{ initiative.description }}
-                <br>
-                <br>
-                <div class="field">
-                  <p class="control">
-                    <a class="button is-primary is-fullwidth is-medium" (click)="toggleModal(currInitiative)">Donate</a>
-                  </p>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-size-4">{{ initiative.title }}</p>
+                    </div>
+                  </div>
+                  <div class="content">
+                    {{ initiative.description }}
+                    <br>
+                    <br>
+                    <div class="field">
+                      <p class="control">
+                        <a class="button is-primary is-fullwidth is-medium" (click)="toggleModal(initiative)">Donate</a>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -114,7 +118,7 @@
                     <div class="column is-6">
                       <div class="field">
                         <p class="control">
-                          <label for="last-name">Last Name:</label>
+                          <label>Last Name:</label>
                           <input class="input" placeholder="placeholder">
                         </p>
                       </div>
@@ -235,10 +239,18 @@
         <br>
         <a class="button is-primary" (click)="onDonate(currInitiative._id)">Confirm</a>
       </div>
+      <div class="modal-section-four has-text-centered" *ngIf="modalStatus === 3">
+        <img src="../../assets/img/loading.svg" alt="" *ngIf="isLoading">
+        <div class="success" *ngIf="!isLoading">
+          <h1 class="title">Thanks!</h1>
+          <br>
+          <p>You can head to your profile to your profile to see your metrics <a routerLink="/profile/my-metrics">here</a> or head back to the <a routerLink="/">home page</a></p>
+        </div>
+      </div>
     </section>
     <footer class="modal-card-foot">
       <button class="button" *ngIf="modalStatus >= 1" (click)="modalNavigator(false)">Back</button>
-      <button class="button is-primary" (click)="modalNavigator(true)" [disabled]="modalStatus === 2">Next</button>
+      <button class="button is-primary" (click)="modalNavigator(true)" [disabled]="modalStatus >= 2">Next</button>
     </footer>
   </div>
 </div>

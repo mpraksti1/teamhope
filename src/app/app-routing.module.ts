@@ -44,6 +44,7 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     children: [
+      { path: '', redirectTo: 'my-metrics', pathMatch: 'full' },
       { path: 'my-metrics', component: MyMetricsComponent },
       { path: 'edit-profile', component: ProfileEditComponent },
     ]

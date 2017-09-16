@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DonationService} from '../../shared/donation.service';
-import { AngularFireAuth } from 'angularfire2/auth';
+import {AuthService} from '../../auth/auth.service';
 
 @Component({
   selector: 'app-my-metrics',
@@ -47,47 +47,50 @@ export class MyMetricsComponent implements OnInit {
 
   constructor(
     private donationService: DonationService,
-    private angularFire: AngularFireAuth,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
-    this.user = this.angularFire.auth.currentUser;
-    console.log('user', this.user);
+    this.authService.user.subscribe(data => {
+      this.user = data;
 
-    this.donationService.getDonationsById(this.user.uid).subscribe(data => {
-      console.log(data);
-      this.donations = data.data;
+      this.donationService.getDonationsById(this.user.uid).subscribe(data => {
+        console.log(data);
+        this.donations = data.data;
 
-      this.initiatives = this.donations.reduce((allInitiatives, initiative) => {
-        if (initiative.initiativeName in allInitiatives) {
-          allInitiatives[initiative.initiativeName]++;
-        } else {
-          allInitiatives[initiative.initiativeName] = 1;
-        }
+        this.initiatives = this.donations.reduce((allInitiatives, initiative) => {
+          if (initiative.initiativeName in allInitiatives) {
+            allInitiatives[initiative.initiativeName]++;
+          } else {
+            allInitiatives[initiative.initiativeName] = 1;
+          }
 
-        return allInitiatives;
-      }, {});
+          return allInitiatives;
+        }, {});
 
-      this.orgs = this.donations.reduce((allOrgs, org) => {
-        if (org.orgName in allOrgs) {
-          allOrgs[org.orgName] += org.amount;
-        } else {
-          allOrgs[org.orgName] = org.amount;
-        }
+        this.orgs = this.donations.reduce((allOrgs, org) => {
+          if (org.orgName in allOrgs) {
+            allOrgs[org.orgName] += org.amount;
+          } else {
+            allOrgs[org.orgName] = org.amount;
+          }
 
-        return allOrgs;
-      }, {});
+          return allOrgs;
+        }, {});
 
-      this.barChartLabels = Object.keys(this.orgs);
-      this.barChartData = (<any>Object).values(this.orgs);
+        this.barChartLabels = Object.keys(this.orgs);
+        this.barChartData = (<any>Object).values(this.orgs);
 
-      console.log(this.barChartLabels);
-      console.log(this.barChartData);
+        console.log(this.barChartLabels);
+        console.log(this.barChartData);
 
-      this.pieChartLabels = Object.keys(this.initiatives);
-      this.pieChartData = (<any>Object).values(this.initiatives);
+        this.pieChartLabels = Object.keys(this.initiatives);
+        this.pieChartData = (<any>Object).values(this.initiatives);
 
-      this.isDataAvailable = true;
+        this.isDataAvailable = true;
+      });
     });
+
+    console.log('user', this.user);
   }
 }

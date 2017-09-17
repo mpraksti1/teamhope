@@ -35,28 +35,24 @@
       <br>
       <div class="columns is-multiline">
         <div class="column is-one-third" *ngFor="let initiative of initiatives; let i = index">
-          <div class="tile is-ancestor">
-            <div class="tile">
-              <div class="card tile is-child">
-                <div class="card-image">
-                  <figure class="image is-4by3" [style.background-image]="'url(' + initiative.image + ')'"></figure>
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3" [style.background-image]="'url(' + initiative.image + ')'"></figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <p class="title is-size-4">{{ initiative.title }}</p>
                 </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      <p class="title is-size-4">{{ initiative.title }}</p>
-                    </div>
-                  </div>
-                  <div class="content">
-                    {{ initiative.description }}
-                    <br>
-                    <br>
-                    <div class="field">
-                      <p class="control">
-                        <a class="button is-primary is-fullwidth is-medium" (click)="toggleModal(initiative)">Donate</a>
-                      </p>
-                    </div>
-                  </div>
+              </div>
+              <div class="content">
+                {{ initiative.description }}
+                <br>
+                <br>
+                <div class="field">
+                  <p class="control">
+                    <a class="button is-primary is-fullwidth is-medium" (click)="toggleModal(initiative)">Donate</a>
+                  </p>
                 </div>
               </div>
             </div>

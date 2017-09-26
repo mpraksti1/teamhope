@@ -26,6 +26,8 @@ import {DonationService} from './shared/donation.service';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 import { MyMetricsComponent } from './profile/my-metrics/my-metrics.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { OrgsByInitiativePipe } from './pipes/orgs-by-initiative.pipe';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { MyMetricsComponent } from './profile/my-metrics/my-metrics.component';
     AdminComponent,
     ProfileComponent,
     ProfileEditComponent,
-    MyMetricsComponent
+    MyMetricsComponent,
+    AboutUsComponent,
+    OrgsByInitiativePipe
   ],
   imports: [
     BrowserModule,

@@ -1779,7 +1779,7 @@ a.box:active {
 }
 
 .button.is-primary:hover, .button.is-primary.is-hovered {
-  background-color: #00c4a7;
+  background-color: #9c2f28;
   border-color: transparent;
   color: #fff;
 }
@@ -3115,7 +3115,7 @@ a.box:active {
 }
 
 .file.is-primary:hover .file-cta, .file.is-primary.is-hovered .file-cta {
-  background-color: #00c4a7;
+  background-color: #9c2f28;
   border-color: transparent;
   color: #fff;
 }

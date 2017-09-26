@@ -27,3 +27,64 @@ section.section.less-padding {
 .hero-body {
   padding: 2rem 1.5rem;
 }
+
+.column.equal-height-card {
+  display: flex;
+
+  &:hover {
+    .card {
+      background: #eeeeee;
+    }
+
+    .card-image figure {
+      transform: scale(1.1);
+    }
+  }
+
+  .card {
+    padding-bottom: 70px;
+    width: 100%;
+    transition: 0.9s background ease;
+    border-radius: 5px 5px 20px 20px;
+  }
+
+  .title {
+    cursor: pointer;
+  }
+
+  .card-image {
+    overflow: hidden;
+    cursor: pointer;
+
+    figure {
+      transform: scale(1);
+      transition: 0.9s transform ease;
+      border-radius: 5px 5px 0 0;
+    }
+  }
+
+  footer {
+    position: absolute;
+    padding-bottom: 10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    &,
+    .card-footer-item {
+      border: none;
+    }
+  }
+}
+
+.button.is-primary-nobg {
+  background: transparent;
+  color: #cd0930;
+  border: none;
+}
+
+.small-hero {
+  .hero-body {
+    padding: 1.5rem;
+  }
+}

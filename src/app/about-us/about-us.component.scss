@@ -1,0 +1,28 @@
+.top-full {
+  img {
+    width: 100%;
+    filter: grayscale(0.7); }
+  .title {
+    position: absolute;
+    text-align: left;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 16vw !important;
+    width: 100%;
+    padding: 0.5rem;
+    color: #e83817;
+    opacity: 0.6;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+  }
+}
+
+.founder-card {
+  .card-image {
+    padding: 20px;
+  }
+  .image {
+    border-radius: 50%;
+    background-size: cover;
+  }
+}

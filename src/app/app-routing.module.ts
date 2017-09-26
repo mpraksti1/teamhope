@@ -11,6 +11,7 @@ import { AdminComponent } from './auth/admin/admin.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MyMetricsComponent } from './profile/my-metrics/my-metrics.component';
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component'
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'posts',
     component: PostsComponent
+  },
+  {
+    path: 'about-us',
+    component: AboutUsComponent
   },
   {
     path: 'organizations',

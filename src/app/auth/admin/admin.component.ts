@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {OrgService} from "../../shared/org.service";
 import {InitiativeService} from "../../shared/initiative.service";
-import {Initiative} from "../../models/initiative.model";
+import SharedConstants from "../../constants/shared"
 
 @Component({
   selector: 'app-admin',
@@ -12,58 +12,7 @@ import {Initiative} from "../../models/initiative.model";
 export class AdminComponent implements OnInit{
   orgs: any[];
 
-  org = {
-    initiatives: [
-      {
-        name: 'Harm reduction',
-        value: 1,
-        selected: false,
-        title: '',
-        description: '',
-        image: ''
-      },
-      {
-        name: 'Community Support',
-        value: 2,
-        selected: false,
-        title: '',
-        description: '',
-        image: ''
-      },
-      {
-        name: 'Therapy',
-        value: 3,
-        selected: false,
-        title: '',
-        description: '',
-        image: ''
-      },
-      {
-        name: 'Treatment',
-        value: 4,
-        selected: false,
-        title: '',
-        description: '',
-        image: ''
-      },
-      {
-        name: 'Needle Exchanging',
-        value: 5,
-        selected: false,
-        title: '',
-        description: '',
-        image: ''
-      },
-      {
-        name: 'Shelters',
-        value: 6,
-        selected: false,
-        title: '',
-        description: '',
-        image: ''
-      },
-    ]
-  };
+  initiatives = [...SharedConstants.Initiatives];
 
   constructor(
     private orgService: OrgService,
@@ -76,15 +25,9 @@ export class AdminComponent implements OnInit{
     });
   }
 
-  onOrgClicked(id) {
-    this.orgService.getOrgById(id).subscribe(data => {
-      console.log(data);
-    });
-  }
-
   onSubmit(form: NgForm) {
     let orgId = null;
-    const selected = this.org.initiatives
+    const selected = this.initiatives
         .filter(c => c.selected);
 
     this.orgService.createNewOrg(form.value)

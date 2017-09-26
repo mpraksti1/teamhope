@@ -1,3 +1,11 @@
 .chart-section {
   text-align: center;
+
+  .columns {
+    align-items: center;
+
+    .column {
+      text-align: left;
+    }
+  }
 }

@@ -9,6 +9,7 @@ const initiativeSchema = new Schema({
   description: String,
   orgId: String,
   image: String,
+  icon: String,
 });
 
 const Initiative = mongoose.model('Initiative', initiativeSchema);

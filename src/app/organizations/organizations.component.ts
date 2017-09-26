@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {OrgService} from "../shared/org.service";
+import {InitiativeService} from "../shared/initiative.service";
 
 @Component({
   selector: 'app-organizations',
@@ -7,16 +8,36 @@ import {OrgService} from "../shared/org.service";
   styleUrls: ['./organizations.component.scss']
 })
 export class OrganizationsComponent implements OnInit {
-  organizations: any[];
+  @ViewChild('d') initSelect;
 
-  constructor(private orgService: OrgService) {
+  organizations: any[];
+  filterState: number;
+
+  constructor(
+    private orgService: OrgService,
+    private initiativeService: InitiativeService,
+  ) {
     this.orgService.getOrgs().subscribe(data => {
-      console.log(data);
-      this.organizations = data.data;
+      const orgs = data.data;
+
+      this.organizations = orgs.map(org => {
+        this.initiativeService.getInitiativesById(org._id).subscribe(resp => {
+          org.initiatives = resp.data;
+        });
+
+        return org;
+      });
     });
   }
 
   ngOnInit() {
   }
 
+  fetchIconClass(init) {
+    return init.icon;
+  }
+
+  onInitChanged() {
+    this.filterState = this.initSelect.nativeElement.value;
+  }
 }

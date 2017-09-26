@@ -1,10 +1,10 @@
-<section class="hero is-primary">
+<section class="hero is-primary small-hero">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title is-size-2-touch">
+      <h1 class="title is-size-3-touch">
         Organizations
       </h1>
-      <h2 class="subtitle is-size-4">
+      <h2 class="title is-size-4 has-text-left">
         We work with
       </h2>
     </div>
@@ -23,9 +23,9 @@
           <label class="label">Filter by initiatives</label>
           <div class="control">
             <div class="select">
-              <select>
-                <option>Select dropdown</option>
-                <option>With options</option>
+              <select #d (change)="onInitChanged()">
+                <option value="1">One</option>
+                <option value="2">Two</option>
               </select>
             </div>
           </div>
@@ -38,34 +38,43 @@
 <section class="section">
   <div class="container">
     <div class="columns is-multiline">
-      <div class="column is-one-third" *ngFor="let organization of organizations; let i = index">
+      <div class="column equal-height-card is-one-quarter" *ngFor="let organization of organizations | orgsByInitiative: filterState">
         <div class="card">
-          <div class="card-image">
-            <figure class="image is-4by3" [style.background-image]="'url(' + organization.orgPhoto + ')'"></figure>
+          <div class="card-image" [routerLink]="['/organization', organization._id]">
+            <figure class="image is-2by1" [style.background-image]="'url(' + organization.orgPhoto + ')'"></figure>
           </div>
           <div class="card-content">
             <div class="media">
               <div class="media-content">
-                <p class="title is-size-4">{{ organization.name }}</p>
+                <p class="title is-size-4" [routerLink]="['/organization', organization._id]">{{ organization.name }}</p>
               </div>
             </div>
-
+            <div class="init-icons">
+              <i class="fa" [ngClass]="fetchIconClass(icon)" *ngFor="let icon of organization.initiatives">
+                <div class="tooltip title is-size-7">{{ icon.name }}</div>
+              </i>
+            </div>
             <div class="content">
               {{ organization.descriptionShort }}
-              <br>
-              <br>
-
-              <a [routerLink]="['/organization', organization._id]" class="button is-primary is-fullwidth is-medium">
-                Learn More
-              </a>
-
-              <!--<p class="control">-->
-                <!--<a class="button">-->
-                  <!--Donate Now-->
-                <!--</a>-->
-              <!--</p>-->
             </div>
           </div>
+          <footer class="card-footer">
+            <p class="card-footer-item">
+              <a href="https://twitter.com/codinghorror/status/506010907021828096">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+            </p>
+            <p class="card-footer-item">
+              <a [routerLink]="['/organization', organization._id]" class="button is-primary is-fullwidth">
+                Learn More
+              </a>
+            </p>
+            <p class="card-footer-item">
+              <a href="https://facebook.com">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+            </p>
+          </footer>
         </div>
       </div>
     </div>

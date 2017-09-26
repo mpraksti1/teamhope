@@ -34,10 +34,10 @@
       <h2 class="title is-size-3 has-text-centered">Initiatives:</h2>
       <br>
       <div class="columns is-multiline">
-        <div class="column is-one-third" *ngFor="let initiative of initiatives; let i = index">
+        <div class="column equal-height-card is-one-third" *ngFor="let initiative of initiatives; let i = index">
           <div class="card">
             <div class="card-image">
-              <figure class="image is-4by3" [style.background-image]="'url(' + initiative.image + ')'"></figure>
+              <figure class="image is-2by1" [style.background-image]="'url(' + initiative.image + ')'"></figure>
             </div>
             <div class="card-content">
               <div class="media">
@@ -47,15 +47,23 @@
               </div>
               <div class="content">
                 {{ initiative.description }}
-                <br>
-                <br>
-                <div class="field">
-                  <p class="control">
-                    <a class="button is-primary is-fullwidth is-medium" (click)="toggleModal(initiative)">Donate</a>
-                  </p>
-                </div>
               </div>
             </div>
+            <footer class="card-footer">
+              <p class="card-footer-item">
+                <a href="https://twitter.com/codinghorror/status/506010907021828096">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+              </p>
+              <p class="card-footer-item">
+                <a class="button is-primary is-fullwidth is-medium" (click)="toggleModal(initiative)">Donate!</a>
+              </p>
+              <p class="card-footer-item">
+                <a href="https://facebook.com">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+              </p>
+            </footer>
           </div>
         </div>
       </div>

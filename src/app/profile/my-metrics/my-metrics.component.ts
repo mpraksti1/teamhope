@@ -16,12 +16,31 @@ export class MyMetricsComponent implements OnInit {
 
   public pieChartOptions = {
     responsive: true
-  }
+  };
   public pieChartLabels: string[] = [];
   public pieChartData: number[] = [];
   public pieChartType = 'pie';
 
-  private colors: any[] = [{ backgroundColor: [
+  public barChartOptions: any = {
+    scaleShowVerticalLines: false,
+    responsive: true,
+    legend: false,
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+          callback: function(value) {
+            return '$' + value;
+          }
+        }
+      }]
+    }
+  };
+  public barChartLabels: string[] = [];
+  public barChartData: any[] = [];
+  public barChartType = 'bar';
+
+  public colors: any[] = [{ backgroundColor: [
     '#114B5F',
     '#00d9f9',
     '#028090',
@@ -29,21 +48,6 @@ export class MyMetricsComponent implements OnInit {
     '#F45B69',
     '#a4c73c'
   ] }];
-
-  public barChartOptions: any = {
-    scaleShowVerticalLines: false,
-    responsive: true,
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: true
-        }
-      }]
-    }
-  };
-  public barChartLabels: string[] = [];
-  public barChartType = 'bar';
-  public barChartData: any[] = [];
 
   constructor(
     private donationService: DonationService,

@@ -40,6 +40,7 @@ export class AuthService {
 
     } catch (error) {
       console.error(error);
+      alert(error.message);
     }
   }
 
@@ -60,6 +61,7 @@ async signInUser(email: string, password: string, signingIn) {
 
     } catch (error) {
       console.error(error);
+      alert(error.message);
     }
 }
 

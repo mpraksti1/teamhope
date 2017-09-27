@@ -98,6 +98,27 @@
                   </textarea>
                 </div>
               </div>
+              <div class="field">
+                <div class="control">
+                  <input
+                    class="input"
+                    type="number"
+                    placeholder="Initiative multiplication factor"
+                    [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="initiative.multiplicationFactor">
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <textarea
+                    class="textarea"
+                    rows="4"
+                    placeholder="Description of your donation metric"
+                    [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="initiative.equationParameter">
+                  </textarea>
+                </div>
+              </div>
             </div>
           </div>
           <br>

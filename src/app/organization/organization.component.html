@@ -83,7 +83,7 @@
       <div class="modal-section-one" *ngIf="modalStatus === 0">
         <h1 class="title is-size-4">Your decision to give will directly impact others:</h1>
         <br>
-        <p>Your donation is equal to {{ userDonation / 25 | number: '1.2-2' }} hours of boots on the ground</p>
+        <p>Your donation is equal to {{ userDonation * currInitiative?.multiplicationFactor | number: '1.2-2' }} {{ currInitiative?.equationParameter }}</p>
         <br>
         <div class="columns is-mobile">
           <div class="field column is-4">

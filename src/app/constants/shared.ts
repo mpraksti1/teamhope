@@ -15,6 +15,8 @@ const SharedConstants = {
       description: '',
       image: '',
       selected: false,
+      multiplicationFactor: 0,
+      equationParameter: '',
     },
     {
       name: 'Community Support',
@@ -24,6 +26,8 @@ const SharedConstants = {
       description: '',
       image: '',
       selected: false,
+      multiplicationFactor: 0,
+      equationParameter: '',
     },
     {
       name: 'Therapy',
@@ -33,6 +37,8 @@ const SharedConstants = {
       description: '',
       image: '',
       selected: false,
+      multiplicationFactor: 0,
+      equationParameter: '',
     },
     {
       name: 'Treatment',
@@ -42,6 +48,8 @@ const SharedConstants = {
       description: '',
       image: '',
       selected: false,
+      multiplicationFactor: 0,
+      equationParameter: '',
     },
     {
       name: 'Needle Exchanging',
@@ -51,6 +59,8 @@ const SharedConstants = {
       description: '',
       image: '',
       selected: false,
+      multiplicationFactor: 0,
+      equationParameter: '',
     },
     {
       name: 'Shelters',
@@ -60,6 +70,8 @@ const SharedConstants = {
       description: '',
       image: '',
       selected: false,
+      multiplicationFactor: 0,
+      equationParameter: '',
     },
   ],
 };

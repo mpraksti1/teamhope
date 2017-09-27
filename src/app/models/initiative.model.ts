@@ -7,6 +7,8 @@ export class Initiative {
     public description: string,
     public image: string,
     public orgId: string,
+    public multiplicationFactor: number,
+    public equationParameter: string,
     public _id?: string,
     public dateLogged?: any ) {}
 }

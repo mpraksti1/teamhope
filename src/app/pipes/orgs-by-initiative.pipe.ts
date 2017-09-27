@@ -15,7 +15,7 @@ export class OrgsByInitiativePipe implements PipeTransform {
       return [];
     }
 
-    if (!filter) {
+    if (!filter || filter === 'all') {
       return values;
     }
 

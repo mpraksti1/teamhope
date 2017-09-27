@@ -10,6 +10,8 @@ const initiativeSchema = new Schema({
   orgId: String,
   image: String,
   icon: String,
+  multiplicationFactor: Number,
+  equationParameter: String,
 });
 
 const Initiative = mongoose.model('Initiative', initiativeSchema);

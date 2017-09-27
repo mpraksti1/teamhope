@@ -25,6 +25,7 @@
           <div class="control">
             <div class="select">
               <select #d (change)="onInitChanged()">
+                <option value="all">All Initiatives</option>
                 <option *ngFor="let value of dropdownValues" [value]="value.value">{{ value.name }}</option>
               </select>
             </div>

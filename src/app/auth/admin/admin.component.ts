@@ -36,6 +36,8 @@ export class AdminComponent implements OnInit{
           console.log(response);
           orgId = response.data._id;
 
+          alert('Success!');
+
           selected.forEach((initiative: any) => {
             initiative.orgId = orgId;
             this.initiativeService.createNewInitiative(initiative)

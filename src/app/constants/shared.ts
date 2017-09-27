@@ -9,22 +9,22 @@ const SharedConstants = {
   founders: [
     {
       name: 'Mike Praksti',
-      bio: 'Mike is 25, loves long walks on the beach and coding',
+      bio: 'Mike loves long walks on the beach and coding',
       imageKey: 'mike'
     },
     {
       name: 'Angela Bender',
-      bio: 'Angela is 30, loves making boxes and arrows',
+      bio: 'Angela loves making boxes and arrows',
       imageKey: 'angela'
     },
     {
       name: 'Jeffery Wyckoff',
-      bio: 'Jeff is 29, loves owning products and hanging out with his family',
+      bio: 'Jeff loves owning products and hanging out with his family',
       imageKey: 'jeff'
     },
     {
-      name: 'Anna Placeholder',
-      bio: 'Anna is 21, loves businessing witht he best of em',
+      name: 'Anna Armao',
+      bio: 'Anna loves businessing with the best of them',
       imageKey: 'anna'
     },
   ],

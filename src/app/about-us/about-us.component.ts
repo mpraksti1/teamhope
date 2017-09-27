@@ -18,8 +18,7 @@ export class AboutUsComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   setHover(bool, index) { this.hoverStatus[index] = bool }
 

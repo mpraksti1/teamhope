@@ -1,7 +1,9 @@
 .top-full {
   img {
     width: 100%;
-    filter: grayscale(0.7); }
+    filter: grayscale(0.7);
+  }
+
   .title {
     position: absolute;
     text-align: left;
@@ -18,11 +20,18 @@
 }
 
 .founder-card {
+  &:hover {
+    .image { filter: grayscale(0)}
+  }
+
   .card-image {
     padding: 20px;
   }
+
   .image {
+    transition: 0.7s all ease;
     border-radius: 50%;
     background-size: cover;
+    filter: grayscale(0.7);
   }
 }

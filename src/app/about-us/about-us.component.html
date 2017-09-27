@@ -8,63 +8,22 @@
 </section>
 <section class="section less-padding">
   <div class="columns is-multiline">
-    <div class="column is-one-third founder-card founder-card">
+    <div class="column is-one-third founder-card founder-card" *ngFor="let founder of founders; let i = index">
       <div class="card-image">
-          <figure class="image is-1by1" [style.background-image]="'url(/assets/img/founders/mike2.jpg)'"></figure>
+          <figure class="image is-1by1"
+                  (mouseover)="setHover(true, i)"
+                  (mouseleave)="setHover(false, i)"
+                  [style.background-image]="generateImgUrl(founder, i)">
+          </figure>
         </div>
       <div class="card-content">
           <div class="media">
             <div class="media-content">
-              <p class="title is-size-4">Michael Praksti</p>
+              <p class="title is-size-4">{{ founder?.name }}</p>
             </div>
           </div>
           <div class="content">
-            Michael is 25 years old, from Madison, WI. He enjoys long walks on the beach, coding, designing websites, doing martial arts and other various activities!
-          </div>
-        </div>
-    </div>
-    <div class="column is-one-third founder-card">
-      <div class="card-image">
-          <figure class="image is-1by1" [style.background-image]="'url(/assets/img/founders/anna2.jpg)'"></figure>
-        </div>
-      <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-size-4">Anna</p>
-            </div>
-          </div>
-          <div class="content">
-            Anna is cool and needs a longer bio
-          </div>
-        </div>
-    </div>
-    <div class="column is-one-third founder-card">
-      <div class="card-image">
-          <figure class="image is-1by1" [style.background-image]="'url(/assets/img/founders/jeff2.jpg)'"></figure>
-        </div>
-      <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-size-4">Jeffrey Wyckoff</p>
-            </div>
-          </div>
-          <div class="content">
-            Jeff is also awesome and needs a longer bio
-          </div>
-        </div>
-    </div>
-    <div class="column is-one-third founder-card">
-      <div class="card-image">
-          <figure class="image is-1by1" [style.background-image]="'url(/assets/img/founders/angela2.jpg)'"></figure>
-        </div>
-      <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-size-4">Angela Bender</p>
-            </div>
-          </div>
-          <div class="content">
-            Angela is amaze and needs moar bio
+            {{ founder?.bio }}
           </div>
         </div>
     </div>

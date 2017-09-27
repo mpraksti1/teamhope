@@ -6,6 +6,10 @@ nav {
   z-index: 1;
 }
 
+.header-logo {
+  transform: translateY(3px);
+}
+
 section.section.less-padding {
   padding: 1.5rem;
 }
@@ -26,6 +30,13 @@ section.section.less-padding {
 
 .hero-body {
   padding: 2rem 1.5rem;
+}
+
+.card-image {
+  figure {
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }
 
 .column.equal-height-card {

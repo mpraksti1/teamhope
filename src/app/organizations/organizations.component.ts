@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {OrgService} from "../shared/org.service";
 import {InitiativeService} from "../shared/initiative.service";
+import SharedConstants from "../constants/shared";
 
 @Component({
   selector: 'app-organizations',
@@ -10,6 +11,7 @@ import {InitiativeService} from "../shared/initiative.service";
 export class OrganizationsComponent implements OnInit {
   @ViewChild('d') initSelect;
 
+  dropdownValues = SharedConstants.Initiatives;
   organizations: any[];
   filterState: number;
 

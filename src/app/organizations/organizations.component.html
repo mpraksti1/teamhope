@@ -11,21 +11,21 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section less-padding">
   <div class="container">
     <div class="columns">
-      <div class="column is-one-third">
-        <p>Get involed lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Phasellus nec iaculis mauris.</p>
-      </div>
       <div class="column is-two-thirds">
+        <p>Get involed! Below are some of the amazing organizations we've met
+          who need your help. They are doing effective work, right now, to help
+          end the opiate crisis or provide help those affected by it.</p>
+      </div>
+      <div class="column is-one-third is-clearfix">
         <div class="field is-pulled-right">
           <label class="label">Filter by initiatives</label>
           <div class="control">
             <div class="select">
               <select #d (change)="onInitChanged()">
-                <option value="1">One</option>
-                <option value="2">Two</option>
+                <option *ngFor="let value of dropdownValues" [value]="value.value">{{ value.name }}</option>
               </select>
             </div>
           </div>
@@ -35,10 +35,13 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section less-padding">
   <div class="container">
     <div class="columns is-multiline">
-      <div class="column equal-height-card is-one-quarter" *ngFor="let organization of organizations | orgsByInitiative: filterState">
+      <div
+        class="column equal-height-card is-one-third-tablet is-one-quarter-desktop"
+        *ngFor="let organization of organizations | orgsByInitiative: filterState"
+      >
         <div class="card">
           <div class="card-image" [routerLink]="['/organization', organization._id]">
             <figure class="image is-2by1" [style.background-image]="'url(' + organization.orgPhoto + ')'"></figure>

@@ -82,6 +82,10 @@ export class OrganizationComponent implements OnInit {
     this.isLoading = true;
     this.modalNavigator(true);
 
+    if(!this.user) {
+      alert('You must be logged in to donate!');
+    }
+
     const donation = {
       orgName: this.currOrg.name,
       initiativeName: this.currInitiative.title,
@@ -93,12 +97,13 @@ export class OrganizationComponent implements OnInit {
 
     this.donationService.createNewDonation(donation)
       .subscribe(
-        (response) => {
+        () => {
           this.currInitiative = null;
           setTimeout(() => {
             this.isLoading = false;
           }, 1000)
-          console.log(response);
+        }, error => {
+          alert(error.message);
         }
       );
   }

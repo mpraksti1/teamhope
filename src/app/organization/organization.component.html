@@ -76,7 +76,7 @@
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
-      <p class="modal-card-title">{{ currInitiative?.title }}</p>
+      <p class="modal-card-title title is-size-6-touch">{{ currInitiative?.title }}</p>
       <button class="delete" aria-label="close" (click)="toggleModal(currInitiative)"></button>
     </header>
     <section class="modal-card-body section">
@@ -107,7 +107,7 @@
         <form>
           <squeezebox [multiple]="false">
             <sb-item [collapsed]="false">
-              <sb-item-head class="title is-size-5">Payment Address</sb-item-head>
+              <sb-item-head class="title is-size-6-touch is-size-5">Payment Address</sb-item-head>
               <sb-item-body>
                 <div class="sb-item-body-pad">
                   <div class="columns">
@@ -115,7 +115,7 @@
                       <div class="field">
                         <p class="control">
                           <label for="first-name">First Name:</label>
-                          <input class="input" placeholder="placeholder">
+                          <input disabled class="input" placeholder="placeholder">
                         </p>
                       </div>
                     </div>
@@ -123,7 +123,7 @@
                       <div class="field">
                         <p class="control">
                           <label>Last Name:</label>
-                          <input class="input" placeholder="placeholder">
+                          <input disabled class="input" placeholder="placeholder">
                         </p>
                       </div>
                     </div>
@@ -133,7 +133,7 @@
                       <div class="field">
                         <p class="control">
                           <label>Address:</label>
-                          <input class="input" placeholder="placeholder">
+                          <input disabled class="input" placeholder="placeholder">
                         </p>
                       </div>
                     </div>
@@ -143,7 +143,7 @@
                       <div class="field">
                         <p class="control">
                           <label>City:</label>
-                          <input class="input" placeholder="placeholder">
+                          <input disabled class="input" placeholder="placeholder">
                         </p>
                       </div>
                     </div>
@@ -151,7 +151,7 @@
                       <div class="field">
                         <p class="control">
                           <label>State:</label>
-                          <select class="input" placeholder="placeholder">
+                          <select disabled class="input" placeholder="placeholder">
                             <option value="montana">Montana</option>
                             <option value="wisconsin">Wisconsin</option>
                           </select>
@@ -164,7 +164,7 @@
                       <div class="field">
                         <p class="control">
                           <label>Zip:</label>
-                          <input class="input" placeholder="placeholder">
+                          <input disabled class="input" placeholder="placeholder">
                         </p>
                       </div>
                     </div>
@@ -173,7 +173,7 @@
               </sb-item-body>
             </sb-item>
             <sb-item>
-              <sb-item-head class="title is-size-5">Payment Info</sb-item-head>
+              <sb-item-head class="title is-size-6-touch is-size-5">Payment Info</sb-item-head>
               <sb-item-body>
                 <div class="sb-item-body-pad">
                   <div class="columns">
@@ -181,7 +181,7 @@
                       <div class="field">
                         <p class="control">
                           <label for="first-name">Card Number:</label>
-                          <input class="input" placeholder="placeholder" type="text" >
+                          <input disabled class="input" placeholder="placeholder" type="text" >
                         </p>
                       </div>
                     </div>
@@ -191,7 +191,7 @@
                       <div class="field">
                         <p class="control">
                           <label for="first-name">Exp.</label>
-                          <select class="input" placeholder="placeholder">
+                          <select disabled class="input" placeholder="placeholder">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -212,7 +212,7 @@
                       <div class="field">
                         <p class="control">
                           <label for="first-name">&nbsp;</label>
-                          <select class="input" placeholder="placeholder">
+                          <select disabled class="input" placeholder="placeholder">
                             <option value="2017">2017</option>
                             <option value="2018">2018</option>
                             <option value="2019">2019</option>
@@ -225,7 +225,7 @@
                       <div class="field">
                         <p class="control">
                           <label for="first-name">CVG:</label>
-                          <input class="input" placeholder="placeholder" name="first-name" id="first-name" type="text" ngModel>
+                          <input disabled class="input" placeholder="placeholder" name="first-name" id="first-name" type="text" ngModel>
                         </p>
                       </div>
                     </div>

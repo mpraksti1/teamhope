@@ -30,7 +30,7 @@ const SharedConstants = {
   ],
   Initiatives: [
     {
-      name: 'Harm reduction',
+      name: 'Prevention',
       value: 1,
       icon: 'fa-heart',
       title: '',
@@ -41,7 +41,7 @@ const SharedConstants = {
       equationParameter: '',
     },
     {
-      name: 'Community Support',
+      name: 'Harm Reduction',
       value: 2,
       icon: 'fa-users',
       title: '',
@@ -52,7 +52,7 @@ const SharedConstants = {
       equationParameter: '',
     },
     {
-      name: 'Therapy',
+      name: 'Response',
       value: 3,
       icon: 'fa-handshake-o ',
       title: '',
@@ -63,7 +63,7 @@ const SharedConstants = {
       equationParameter: '',
     },
     {
-      name: 'Treatment',
+      name: 'Community Support',
       value: 4,
       icon: 'fa-medkit',
       title: '',
@@ -74,20 +74,9 @@ const SharedConstants = {
       equationParameter: '',
     },
     {
-      name: 'Needle Exchanging',
+      name: 'Recovery',
       value: 5,
       icon: 'fa-exchange',
-      title: '',
-      description: '',
-      image: '',
-      selected: false,
-      multiplicationFactor: 0,
-      equationParameter: '',
-    },
-    {
-      name: 'Shelters',
-      value: 6,
-      icon: 'fa-home',
       title: '',
       description: '',
       image: '',

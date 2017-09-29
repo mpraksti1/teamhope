@@ -22,6 +22,7 @@ export class OrganizationComponent implements OnInit {
   userDonation = 10;
   modalStatus = 0;
   isLoading: boolean = false;
+  frequencyDropdown = false;
   private sub: any;
 
   constructor(
@@ -82,7 +83,7 @@ export class OrganizationComponent implements OnInit {
     this.isLoading = true;
     this.modalNavigator(true);
 
-    if(!this.user) {
+    if (!this.user) {
       alert('You must be logged in to donate!');
     }
 
@@ -104,6 +105,7 @@ export class OrganizationComponent implements OnInit {
           }, 1000)
         }, error => {
           alert(error.message);
+          this.isModalActive = false;
         }
       );
   }

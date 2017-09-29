@@ -21,13 +21,13 @@ const SharedConstants = {
     },
     {
       name: 'Jeffrey Wyckoff',
-      bio: 'Jeff loves owning products and hanging out with his family',
+      bio: 'Jeff loves owning products and hanging out with his family.',
       imageKey: 'jeff',
       fileExt: 'JPG'
     },
     {
       name: 'Tommy George',
-      bio: 'Tommy is a rockstart database engineer and an okay golfer',
+      bio: 'Tommy is a rockstar database engineer and an okay golfer.',
       imageKey: 'tom',
       fileExt: 'jpg'
     },
@@ -39,16 +39,22 @@ const SharedConstants = {
     },
     {
       name: 'Anna Armao',
-      bio: 'Anna loves businessing with the best of them and running your life from behind the scenes',
+      bio: 'Anna loves businessing with the best of them and running your life from behind the scenes.',
       imageKey: 'anna',
       fileExt: 'JPG'
+    },
+    {
+      name: 'Jonathan Marshall',
+      bio: 'Jonathan needs to send me his short bio',
+      imageKey: 'jon',
+      fileExt: 'jpg'
     },
   ],
   Initiatives: [
     {
       name: 'Prevention',
       value: 1,
-      icon: 'fa-heart',
+      icon: 'fa-shield',
       title: '',
       description: '',
       image: '',
@@ -59,7 +65,7 @@ const SharedConstants = {
     {
       name: 'Harm Reduction',
       value: 2,
-      icon: 'fa-users',
+      icon: 'fa-medkit',
       title: '',
       description: '',
       image: '',
@@ -70,7 +76,7 @@ const SharedConstants = {
     {
       name: 'Response',
       value: 3,
-      icon: 'fa-handshake-o ',
+      icon: 'fa-user-md ',
       title: '',
       description: '',
       image: '',
@@ -81,7 +87,7 @@ const SharedConstants = {
     {
       name: 'Community Support',
       value: 4,
-      icon: 'fa-medkit',
+      icon: 'fa-users',
       title: '',
       description: '',
       image: '',
@@ -92,7 +98,7 @@ const SharedConstants = {
     {
       name: 'Recovery',
       value: 5,
-      icon: 'fa-exchange',
+      icon: 'fa-leaf',
       title: '',
       description: '',
       image: '',

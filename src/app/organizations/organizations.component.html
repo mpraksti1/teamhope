@@ -22,11 +22,11 @@
       <br><br>
     </div>
     <div class="field">
-      <label class="label">Filter by Focus Areas</label>
+      <label class="label">Filter by initiatives</label>
       <div class="control">
         <div class="select">
           <select #d (change)="onInitChanged()" [(ngModel)]="selectVal">
-            <option value="all">All Focus Areas</option>
+            <option value="all">All Initiatives</option>
             <option *ngFor="let value of dropdownValues" [value]="value.value">{{ value.name }}</option>
           </select>
         </div>
@@ -39,7 +39,7 @@
   <div class="container">
     <div class="columns is-multiline" *ngIf="organizations">
       <div
-        class="column animated-list equal-height-card is-one-third"
+        class="column animated-list equal-height-card is-one-third-tablet"
         *ngFor="let organization of organizations | orgsByInitiative: filterState"
       >
         <div class="card">
@@ -62,6 +62,7 @@
             </div>
           </div>
           <footer class="card-footer">
+
             <p class="card-footer-item">
               <a [routerLink]="['/organization', organization._id]" class="button is-primary is-fullwidth">
                 Learn More

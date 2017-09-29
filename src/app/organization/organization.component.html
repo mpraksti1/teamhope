@@ -3,8 +3,7 @@
 <div class="container">
 
   <section class="section less-padding">
-    <h1 class="title is-size-1-desktop is-size-3-touch">{{ currOrg?.name }}</h1>
-    <br>
+    <h1 class="title is-size-1-desktop is-size-3-touch no-marg really-no-margin">{{ currOrg?.name }}</h1>
     <p>{{ currOrg?.descriptionLong}}</p>
   </section>
 
@@ -42,7 +41,16 @@
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <p class="title is-size-4">{{ initiative.title }}</p>
+                  <div class="columns">
+                    <div class="column"><p class="title is-size-4">{{ initiative.title }}</p></div>
+                    <div class="column is-narrow">
+                      <div class="init-icons">
+                        <i class="fa" [ngClass]="initiative.icon">
+                          <div class="tooltip title is-size-7">{{ initiative.name }}</div>
+                        </i>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="content">
@@ -78,7 +86,7 @@
       <div class="modal-section-one" *ngIf="modalStatus === 0">
         <h1 class="title is-size-4">Your decision to give will directly impact others:</h1>
         <br>
-        <p>Your donation is equal to {{ userDonation * currInitiative?.multiplicationFactor | number: '1.2-2' }} {{ currInitiative?.equationParameter }}</p>
+        <p>Your donation is equal to <b class="is-size-4">{{ userDonation * currInitiative?.multiplicationFactor | number: '1.2-2' }}</b> {{ currInitiative?.equationParameter }}</p>
         <br>
         <div class="columns is-mobile">
           <div class="field column is-4">
@@ -236,6 +244,25 @@
         <br>
         <p>Send ${{ userDonation }} to {{ currOrg?.name }} for their initiative, {{ currInitiative?.title }}?</p>
         <br>
+        <div class="field">
+          <div class="control">
+            <label class="checkbox">
+              <input type="checkbox" [(ngModel)]="frequencyDropdown"/> <small>Make this a recurring gift</small>
+            </label>
+          </div>
+        </div>
+        <div class="field" *ngIf="frequencyDropdown">
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="foobar">
+              <small>Monthly</small>
+            </label>
+            <label class="radio">
+              <input type="radio" name="foobar" checked>
+              <small>Annual</small>
+            </label>
+          </div>
+        </div>
         <a class="button is-primary" (click)="onDonate(currInitiative._id)">Confirm</a>
       </div>
       <div class="modal-section-four has-text-centered" *ngIf="modalStatus === 3">
@@ -249,6 +276,8 @@
           <br><br>
           <div class="columns">
             <div class="column">
+              <p>Share us on social media and further your impact!</p>
+              <br>
               <a class="button is-primary">
                 <span href="http://www.twitter.com" class="icon">
                   <i class="fa fa-twitter"></i>

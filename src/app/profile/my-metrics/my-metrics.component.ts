@@ -49,7 +49,6 @@ export class MyMetricsComponent implements OnInit {
     '#114B5F',
     '#00d9f9',
     '#028090',
-    '#E4FDE1',
     '#F45B69',
     '#a4c73c'
   ] }];

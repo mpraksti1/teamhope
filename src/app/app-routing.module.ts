@@ -32,6 +32,10 @@ const routes: Routes = [
     component: OrganizationsComponent
   },
   {
+    path: 'organizations/:init',
+    component: OrganizationsComponent
+  },
+  {
     path: 'organization/:id',
     component: OrganizationComponent
   },
@@ -42,7 +46,6 @@ const routes: Routes = [
       { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
       { path: 'sign-in', component: SignInComponent },
       { path: 'sign-up', component: SignUpComponent },
-      { path: 'admin', component: AdminComponent },
     ]
   },
   {

@@ -1,11 +1,15 @@
 <header class="video-header">
-  <video src="../../assets/video/hopemovie2.mp4" autoplay loop playsinline muted></video>
+  <div class="overlay"></div>
     <div class="viewport-header">
-      <h1 class="is-size-4-mobile">
-        Don't just give money
-        <span class="is-size-1-mobile">Give Hope</span>
+      <h1 class="is-size-5-mobile">
+        Don't just give money. <span class="break-mobile">Give Hope.</span>
+        <span class="is-size-1-mobile logo-text">Give|Simply</span>
       </h1>
-      <p>We're a crowdfunding platform designed to bring low visibility people and organizations doing amazing work into the light. Lorem ipsum dolor sit amet, la la la and some more flavor text for length.</p>
+      <p>We’re a crowdfunding platform designed to connect you to the people and local organizations doing amazing work fighting the heroin epidemic. You give, they create community impact - it’s that simple.</p>
+      <br><br>
+      <a class="title is-size-3-touch is-size-4-desktop" routerLink="/organizations">
+        <span class="link-with-icon">Get Started<i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+      </a>
     </div>
 </header>
 
@@ -13,18 +17,27 @@
   <section class="section how-to-help">
     <div class="container">
       <div class="columns">
-        <div class="column">
-          <h1 class="title is-size-2-touch">There's a lot of ways to help</h1>
+        <div class="column self-centered">
+          <h2 class="title is-size-4 top-title">Have questions? No worries.</h2>
+          <h1 class="title bigtitle is-size-2-touch">Here's how it works:</h1>
         </div>
         <div class="column">
-          <small>Here's some flavor text and lorem ipsum dolor sit a-
-            everyone is reading this now. We're a crowdfunding platform designed to bring low
-            visibility people and organizations doing amazing work into the light. Lorem
-            ipsum dolor sit amet, la la la and some more flavor text for length.</small>
-          <br><br>
-          <a class="button" routerLink="/organizations">
-            <span>Give Now</span>
-          </a>
+          <div class="step">
+            <h3 class="title is-size-4"><span class="list-number">1</span>Discover</h3>
+            <small>Search through our curated list of organizations
+              that we've vetted and proven are making real,
+              discernable impact in our community.</small>
+          </div>
+          <div class="step">
+            <h3 class="title is-size-4"><span class="list-number">2</span>Donate</h3>
+            <small>We make it easy and secure to get your money to the causes
+                you care about, and 100% of your money goes directly
+                to the organization you pick.</small>
+          </div>
+          <div class="step">
+            <h3 class="title is-size-4"><span class="list-number">3</span>Track</h3>
+            <small>Keep track of how much you've given, who you've given to and see for yourself how much of a difference you've made!</small>
+          </div>
         </div>
       </div>
     </div>
@@ -32,25 +45,35 @@
 
   <section class="section our-partners">
     <div class="container">
-      <h1 class="title is-size-2-touch">Our Partners</h1>
-      <p class="subtitle">
-        <small>We take pride in who we work with:</small>
-      </p>
+      <h1 class="title bigtitle is-size-2-touch">Our Partners:</h1>
       <div class="columns">
         <div class="column">
           <img src="../../assets/img/partners/sprylabs.png" alt="">
         </div>
         <div class="column">
-          <img src="../../assets/img/partners/stelizabeth.png" alt="">
-        </div>
-        <div class="column">
           <img src="../../assets/img/partners/centrifuse.png" alt="">
         </div>
         <div class="column">
-          <img src="../../assets/img/partners/microsoft.png" alt="">
-        </div>
-        <div class="column">
           <img src="../../assets/img/partners/17a.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section focus-areas">
+    <div class="container">
+      <h1 class="title bigtitle is-size-2-touch">Focus Areas:</h1>
+      <div class="columns is-multiline">
+        <div class="column is-one-third" *ngFor="let init of inits">
+          <div class="initiative">
+            <h1 class="title is-size-6 no-marg really-no-margin">{{ init.name }}</h1>
+            <small>Search through our curated list of organizations
+              that we've vetted and proven are making real,
+              discernable impact in our community.</small>
+            <div>
+              <small><a [routerLink]="['/organizations', init.value]">Go to {{ init.name }}</a></small>
+            </div>
+          </div>
         </div>
       </div>
     </div>

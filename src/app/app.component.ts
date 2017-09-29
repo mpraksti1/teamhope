@@ -1,4 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import {AuthService} from './auth/auth.service';
 
 @Component({
@@ -15,9 +16,18 @@ export class AppComponent implements OnInit {
   mobileNavShowing = false;
 
   constructor(
-    private authService: AuthService) {}
+    private router: Router,
+    private authService: AuthService,
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
+  }
 
   onUserSignOut() {
     this.authService.signOutUser();

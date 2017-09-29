@@ -3,15 +3,19 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1;
-}
-
-.header-logo {
-  transform: translateY(3px);
+  z-index: 3;
 }
 
 section.section.less-padding {
   padding: 1.5rem;
+}
+
+section.section.chart-section {
+  padding: 1.5em 0.5em;
+}
+
+.self-centered {
+  align-self: center;
 }
 
 .title {
@@ -19,7 +23,10 @@ section.section.less-padding {
   text-transform: uppercase!important;
   display: block!important;
   font-size: 5vw!important;
-  margin: -7px 0 0 0!important;
+
+  &.no-marg.really-no-margin {
+    margin: 0;
+  }
 }
 
 .subtitle {
@@ -43,10 +50,6 @@ section.section.less-padding {
   display: flex;
 
   &:hover {
-    .card {
-      background: #eeeeee;
-    }
-
     .card-image figure {
       transform: scale(1.03);
     }
@@ -98,4 +101,22 @@ section.section.less-padding {
   .hero-body {
     padding: 1.5rem;
   }
+}
+
+.link-with-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  i { margin-left: 5px; }
+}
+
+.break-mobile {
+  @media screen and (max-width: 767px) {
+    display: block;
+  }
+}
+
+footer.simply-a-footer {
+  padding: 1.5em;
 }

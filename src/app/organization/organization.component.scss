@@ -1,11 +1,15 @@
 .header-image {
-  height: 200px;
+  height: 290px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position: center;
 }
 
 .founder-picture {
   background-size: cover;
   background-position: center;
+}
+
+.modal-card-head .modal-card-title {
+  width: 90%;
 }

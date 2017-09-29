@@ -30,6 +30,24 @@ body {
   text-align: center;
   width: 100vw;
   height: 100vh;
+  position: relative;
+  background-image: url("../../assets/img/bg7.jpg");
+  background-size: cover;
+  filter: grayscale(0.7);
+  z-index: 2;
+
+  @media screen and (max-width: 767px) {
+    background-image: url("../../assets/img/bg5.jpg");
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+  }
 
   &, video, .viewport-header {
     @include coverer;
@@ -55,12 +73,6 @@ body {
     transform: scale(var(--headerScale));
     color: #fff;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-    background: url("../../assets/img/bg5.jpg");
-    background-size: cover;
-
-    @media (min-width: 1008px) {
-      background: transparent;
-    }
 
     h1 {
       line-height: 1.2;
@@ -69,14 +81,26 @@ body {
       text-transform: uppercase;
       text-align: center;
 
-      span {
+      .logo-text {
         font-family: 'Montserrat', sans-serif;
         text-transform: uppercase;
         display: block;
         font-size: 9vw;
         letter-spacing: -0.3vw;
-        margin: -4px 0 0 0;
+        margin: 0;
+
+        @media screen and (max-width: 767px) {
+          margin: 10px 0;
+        }
       }
+    }
+
+    a {
+      color: #fff;
+      position: relative;
+      z-index: 10;
+      cursor: pointer;
+
     }
   }
 
@@ -88,9 +112,12 @@ body {
 
 .home-content {
   margin-top: calc(100vh - 52px);
+  position: relative;
+  z-index: 1;
 
-  .title {
+  .title.bigtitle {
     letter-spacing: -0.3vw;
+    line-height: 0.8;
   }
 }
 
@@ -104,8 +131,25 @@ body {
     top: -100vh;
   }
 
-  h1 {
-    margin-bottom: 0px;
+  .top-title {
+    margin-bottom: 7px;
+  }
+
+  .step {
+    margin-bottom: 20px;
+    .title {
+      margin-bottom: 7px;
+
+      .list-number {
+        background: #c1c1c1;
+        height: 30px;
+        width: 30px;
+        margin-right: 10px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+      }
+    }
   }
 
   small { color: #fff; }
@@ -123,4 +167,8 @@ body {
     max-height: 100px;
     max-width: 150px;
   }
+}
+
+.focus-areas {
+  background: #e0e0e0;
 }

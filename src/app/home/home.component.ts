@@ -8,11 +8,12 @@ import SharedConstants from '../constants/shared';
 })
 export class HomeComponent implements OnInit {
   partners: string[];
+  inits: any[];
 
   constructor() {
     this.partners = SharedConstants.partners;
+    this.inits = SharedConstants.Initiatives;
   }
-
   ngOnInit() {
 
   }

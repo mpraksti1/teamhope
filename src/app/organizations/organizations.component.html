@@ -1,7 +1,7 @@
 <section class="hero is-primary small-hero">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title is-size-3-touch">
+      <h1 class="title is-size-3-touch no-marg really-no-margin">
         Organizations
       </h1>
       <h2 class="title is-size-4 has-text-left">
@@ -14,22 +14,21 @@
 <section class="section less-padding">
   <div class="container">
     <div class="columns">
-      <div class="column is-two-thirds">
-        <p>Get involed! Below are some of the amazing organizations we've met
-          who need your help. They are doing effective work, right now, to help
-          end the opiate crisis or provide help those affected by it.</p>
+      <div class="column is-half">
+        <p>We’re proud of these support-worthy organizations and
+          their impactful work in our local fight against heroin.
+          Join us in helping them make an even bigger difference.</p>
       </div>
-      <div class="column is-one-third is-clearfix">
-        <div class="field is-pulled-right">
-          <label class="label">Filter by initiatives</label>
-          <div class="control">
-            <div class="select">
-              <select #d (change)="onInitChanged()">
-                <option value="all">All Initiatives</option>
-                <option *ngFor="let value of dropdownValues" [value]="value.value">{{ value.name }}</option>
-              </select>
-            </div>
-          </div>
+      <br><br>
+    </div>
+    <div class="field">
+      <label class="label">Filter by Focus Areas</label>
+      <div class="control">
+        <div class="select">
+          <select #d (change)="onInitChanged()" [(ngModel)]="selectVal">
+            <option value="all">All Focus Areas</option>
+            <option *ngFor="let value of dropdownValues" [value]="value.value">{{ value.name }}</option>
+          </select>
         </div>
       </div>
     </div>
@@ -38,9 +37,9 @@
 
 <section class="section less-padding">
   <div class="container">
-    <div class="columns is-multiline">
+    <div class="columns is-multiline" *ngIf="organizations">
       <div
-        class="column equal-height-card is-one-third-tablet is-one-quarter-desktop"
+        class="column animated-list equal-height-card is-one-third"
         *ngFor="let organization of organizations | orgsByInitiative: filterState"
       >
         <div class="card">
@@ -64,18 +63,8 @@
           </div>
           <footer class="card-footer">
             <p class="card-footer-item">
-              <a href="https://twitter.com/codinghorror/status/506010907021828096">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-            </p>
-            <p class="card-footer-item">
               <a [routerLink]="['/organization', organization._id]" class="button is-primary is-fullwidth">
                 Learn More
-              </a>
-            </p>
-            <p class="card-footer-item">
-              <a href="https://facebook.com">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
             </p>
           </footer>

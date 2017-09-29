@@ -14,17 +14,27 @@ const SharedConstants = {
     },
     {
       name: 'Angela Bender',
-      bio: 'Angela loves making boxes and arrows',
+      bio: 'Angela likes to make things work for people. As a person, she loves wine and wordplay.',
       imageKey: 'angela'
     },
     {
-      name: 'Jeffery Wyckoff',
+      name: 'Jeffrey Wyckoff',
       bio: 'Jeff loves owning products and hanging out with his family',
       imageKey: 'jeff'
     },
     {
+      name: 'Tommy George',
+      bio: 'Tommy is a rockstart database engineer and an okay golfer',
+      imageKey: 'tom'
+    },
+    {
+      name: 'Phil Heidenreich',
+      bio: 'Phil loves caffeine and making ideas realities.',
+      imageKey: 'phil'
+    },
+    {
       name: 'Anna Armao',
-      bio: 'Anna loves businessing with the best of them',
+      bio: 'Anna loves businessing with the best of them and running your life from behind the scenes',
       imageKey: 'anna'
     },
   ],

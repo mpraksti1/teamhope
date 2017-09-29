@@ -24,9 +24,14 @@ export class MyMetricsComponent implements OnInit {
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true,
-    legend: false,
+    legend: {
+      position: 'top',
+      labels: {
+        fontSize: 12
+      }
+    },
     scales: {
-      yAxes: [{
+      xAxes: [{
         ticks: {
           beginAtZero: true,
           callback: function(value) {
@@ -38,7 +43,7 @@ export class MyMetricsComponent implements OnInit {
   };
   public barChartLabels: string[] = [];
   public barChartData: any[] = [];
-  public barChartType = 'bar';
+  public barChartType = 'horizontalBar';
 
   public colors: any[] = [{ backgroundColor: [
     '#114B5F',

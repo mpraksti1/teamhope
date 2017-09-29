@@ -33,6 +33,10 @@ export class AppComponent implements OnInit {
     this.authService.signOutUser();
   }
 
+  closeMobileMenu() {
+    this.mobileNavShowing = false;
+  }
+
   toggleMobileMenu() {
     this.mobileNavShowing = !this.mobileNavShowing;
   }

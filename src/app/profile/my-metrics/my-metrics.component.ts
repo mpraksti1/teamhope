@@ -13,6 +13,7 @@ export class MyMetricsComponent implements OnInit {
   orgs: any;
   initiatives: any;
   isDataAvailable = false;
+  noDonations = false;
 
   public pieChartOptions = {
     responsive: true
@@ -24,12 +25,6 @@ export class MyMetricsComponent implements OnInit {
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true,
-    legend: {
-      position: 'top',
-      labels: {
-        fontSize: 12
-      }
-    },
     scales: {
       xAxes: [{
         ticks: {
@@ -65,6 +60,9 @@ export class MyMetricsComponent implements OnInit {
       this.donationService.getDonationsById(this.user.uid).subscribe(data => {
         console.log(data);
         this.donations = data.data;
+        if (this.donations.length < 1) {
+          this.noDonations = true;
+        }
 
         this.initiatives = this.donations.reduce((allInitiatives, initiative) => {
           if (initiative.initiativeName in allInitiatives) {

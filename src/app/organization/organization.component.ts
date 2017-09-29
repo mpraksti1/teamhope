@@ -105,7 +105,7 @@ export class OrganizationComponent implements OnInit {
           }, 1000)
         }, error => {
           alert(error.message);
-          this.isModalActive = false;
+          this.toggleModal(null);
         }
       );
   }

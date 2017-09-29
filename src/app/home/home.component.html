@@ -2,7 +2,7 @@
   <div class="overlay"></div>
     <div class="viewport-header">
       <h1 class="is-size-5-mobile">
-        Don't just give money. <span class="break-mobile">Give Hope.</span>
+        Don't just give money, <span class="break-mobile">Give Hope.</span>
         <span class="is-size-1-mobile logo-text">Give|Simply</span>
       </h1>
       <p>We’re a crowdfunding platform designed to connect you to the people and local organizations doing amazing work fighting the heroin epidemic. You give, they create community impact - it’s that simple.</p>
@@ -67,9 +67,7 @@
         <div class="column is-one-third" *ngFor="let init of inits">
           <div class="initiative">
             <h1 class="title is-size-6 no-marg really-no-margin"><i class="fa is-size-6" [ngClass]="init.icon"></i>&nbsp;{{ init.name }}</h1>
-            <small>Search through our curated list of organizations
-              that we've vetted and proven are making real,
-              discernable impact in our community.</small>
+            <small>{{ init.faDescription }}</small>
             <div>
               <small><a [routerLink]="['/organizations', init.value]">Go to {{ init.name }}</a></small>
             </div>

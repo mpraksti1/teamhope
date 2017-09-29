@@ -14,9 +14,6 @@ export class MyMetricsComponent implements OnInit {
   initiatives: any;
   isDataAvailable = false;
 
-  public pieChartOptions = {
-    responsive: true
-  };
   public pieChartLabels: string[] = [];
   public pieChartData: number[] = [];
   public pieChartType = 'pie';
@@ -26,7 +23,7 @@ export class MyMetricsComponent implements OnInit {
     responsive: true,
     legend: false,
     scales: {
-      yAxes: [{
+      xAxes: [{
         ticks: {
           beginAtZero: true,
           callback: function(value) {
@@ -38,7 +35,7 @@ export class MyMetricsComponent implements OnInit {
   };
   public barChartLabels: string[] = [];
   public barChartData: any[] = [];
-  public barChartType = 'bar';
+  public barChartType = 'horizontalBar';
 
   public colors: any[] = [{ backgroundColor: [
     '#114B5F',

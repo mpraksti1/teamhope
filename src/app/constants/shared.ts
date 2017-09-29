@@ -10,32 +10,38 @@ const SharedConstants = {
     {
       name: 'Mike Praksti',
       bio: 'Mike loves long walks on the beach and coding',
-      imageKey: 'mike'
+      imageKey: 'mike',
+      fileExt: 'JPG'
     },
     {
       name: 'Angela Bender',
       bio: 'Angela likes to make things work for people. As a person, she loves wine and wordplay.',
-      imageKey: 'angela'
+      imageKey: 'angela',
+      fileExt: 'JPG'
     },
     {
       name: 'Jeffrey Wyckoff',
       bio: 'Jeff loves owning products and hanging out with his family',
-      imageKey: 'jeff'
+      imageKey: 'jeff',
+      fileExt: 'JPG'
     },
     {
       name: 'Tommy George',
       bio: 'Tommy is a rockstart database engineer and an okay golfer',
-      imageKey: 'tom'
+      imageKey: 'tom',
+      fileExt: 'jpg'
     },
     {
       name: 'Phil Heidenreich',
       bio: 'Phil loves caffeine and making ideas realities.',
-      imageKey: 'phil'
+      imageKey: 'phil',
+      fileExt: 'jpg'
     },
     {
       name: 'Anna Armao',
       bio: 'Anna loves businessing with the best of them and running your life from behind the scenes',
-      imageKey: 'anna'
+      imageKey: 'anna',
+      fileExt: 'JPG'
     },
   ],
   Initiatives: [

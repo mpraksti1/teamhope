@@ -24,8 +24,8 @@ export class AboutUsComponent implements OnInit {
 
   generateImgUrl(founder, index) {
     return this.hoverStatus[index]
-      ? `url(/assets/img/founders/${founder.imageKey}1.JPG)`
-      : `url(/assets/img/founders/${founder.imageKey}2.JPG)`
+      ? `url(/assets/img/founders/${founder.imageKey}1.${founder.fileExt})`
+      : `url(/assets/img/founders/${founder.imageKey}2.${founder.fileExt})`
       ;
   }
 }

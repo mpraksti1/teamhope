@@ -15,7 +15,8 @@ export class MyMetricsComponent implements OnInit {
   isDataAvailable = false;
 
   public pieChartOptions = {
-    responsive: true
+    responsive: true,
+    maintainAspectRatio: true,
   };
   public pieChartLabels: string[] = [];
   public pieChartData: number[] = [];

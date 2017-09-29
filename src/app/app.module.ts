@@ -28,7 +28,6 @@ import { ProfileEditComponent } from './profile/profile-edit/profile-edit.compon
 import { MyMetricsComponent } from './profile/my-metrics/my-metrics.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { OrgsByInitiativePipe } from './pipes/orgs-by-initiative.pipe';
-import {OffClickModule} from 'angular2-off-click';
 
 @NgModule({
   declarations: [
@@ -57,7 +56,6 @@ import {OffClickModule} from 'angular2-off-click';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     SqueezeBoxModule,
-    OffClickModule,
   ],
   providers: [
     UsersService,

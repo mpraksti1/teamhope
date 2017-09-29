@@ -15,8 +15,7 @@ export class MyMetricsComponent implements OnInit {
   isDataAvailable = false;
 
   public pieChartOptions = {
-    responsive: true,
-    maintainAspectRatio: true,
+    responsive: true
   };
   public pieChartLabels: string[] = [];
   public pieChartData: number[] = [];
@@ -25,6 +24,12 @@ export class MyMetricsComponent implements OnInit {
   public barChartOptions: any = {
     scaleShowVerticalLines: false,
     responsive: true,
+    legend: {
+      position: 'top',
+      labels: {
+        fontSize: 12
+      }
+    },
     scales: {
       xAxes: [{
         ticks: {
@@ -44,6 +49,7 @@ export class MyMetricsComponent implements OnInit {
     '#114B5F',
     '#00d9f9',
     '#028090',
+    '#E4FDE1',
     '#F45B69',
     '#a4c73c'
   ] }];

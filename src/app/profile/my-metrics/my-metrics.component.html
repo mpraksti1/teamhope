@@ -1,14 +1,13 @@
-
 <section class="section chart-section" *ngIf="isDataAvailable">
   <h1 class="title is-size-3">Who have I donated to?</h1>
   <br>
   <div class="columns">
-    <div class="column is-half">
-      <h1 class="title is-size-4">Focus Areas</h1>
-      <p>These are the donations you've made, categorize by the focus areas of the the initiatives.</p>
+    <div class="column">
+      <h1 class="title is-size-4">Initiatives</h1>
+      <p>These are the initiatives you've made a difference in, displayed in a pie chart format according to how many times you've given to each.</p>
     </div>
-    <div class="column is-half">
-      <div style="display: block; max-width: 500px; margin: 0 auto;">
+    <div class="column">
+      <div style="display: block; max-width: 500px; margin: 0 auto">
         <canvas baseChart
                 [data]="pieChartData"
                 [labels]="pieChartLabels"
@@ -24,8 +23,8 @@
   <h1 class="title is-size-3">How much have I donated?</h1>
   <br>
   <div class="columns">
-    <div class="column is-half">
-      <div style="display: block; max-width: 500px; margin: 0 auto;">
+    <div class="column">
+      <div style="display: block; max-width: 500px; margin: 0 auto">
         <canvas baseChart
                 [data]="barChartData"
                 [labels]="barChartLabels"
@@ -35,9 +34,9 @@
         </canvas>
       </div>
     </div>
-    <div class="column is-half">
+    <div class="column">
       <h1 class="title is-size-4">Organizations</h1>
-      <p>These are the organizations you've given to, displayed according to how much you've given to each.</p>
+      <p>These are the organizations you've given to, displayed in a bar chart format according to how much you've given to each.</p>
     </div>
   </div>
 </section>

@@ -28,6 +28,8 @@ import { ProfileEditComponent } from './profile/profile-edit/profile-edit.compon
 import { MyMetricsComponent } from './profile/my-metrics/my-metrics.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { OrgsByInitiativePipe } from './pipes/orgs-by-initiative.pipe';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { OrgsByInitiativePipe } from './pipes/orgs-by-initiative.pipe';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpModule,
     FormsModule,
@@ -56,6 +59,8 @@ import { OrgsByInitiativePipe } from './pipes/orgs-by-initiative.pipe';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     SqueezeBoxModule,
+    NgxChartsModule,
+
   ],
   providers: [
     UsersService,

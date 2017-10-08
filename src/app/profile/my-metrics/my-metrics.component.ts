@@ -5,7 +5,7 @@ import {AuthService} from '../../auth/auth.service';
 @Component({
   selector: 'app-my-metrics',
   templateUrl: './my-metrics.component.html',
-  styleUrls: ['./my-metrics.component.scss']
+  styleUrls: ['./my-metrics.component.scss'],
 })
 export class MyMetricsComponent implements OnInit {
   user: any;
@@ -13,51 +13,64 @@ export class MyMetricsComponent implements OnInit {
   orgs: any;
   initiatives: any;
   isDataAvailable = false;
+  pieChart: any[];
+  barChart: any[];
+  noDonations = false;
+  isResizing = false;
 
-  public pieChartLabels: string[] = [];
-  public pieChartData: number[] = [];
-  public pieChartType = 'pie';
+  // options
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = true;
+  showLabels = false;
+  doughnut = true;
+  arc = .5;
+  explodeSlices = true;
+  showYAxisLabel = true;
+  showXAxisLabel = true;
+  xAxisLabel = 'Organization';
+  yAxisLabel = 'Amount';
 
-  public barChartOptions: any = {
-    scaleShowVerticalLines: false,
-    responsive: true,
-    legend: false,
-    scales: {
-      xAxes: [{
-        ticks: {
-          beginAtZero: true,
-          callback: function(value) {
-            return '$' + value;
-          }
-        }
-      }]
-    }
+  colorScheme = {
+    domain: [
+      '#d20357',
+      '#ff8100',
+      '#00d1d6',
+      '#103a5a',
+      '#092442',
+      '#114B5F',
+      '#a4af3c',
+      '#F45B69',
+      '#00d9f9',
+      '#028090',
+    ]
   };
-  public barChartLabels: string[] = [];
-  public barChartData: any[] = [];
-  public barChartType = 'horizontalBar';
-
-  public colors: any[] = [{ backgroundColor: [
-    '#114B5F',
-    '#00d9f9',
-    '#028090',
-    '#E4FDE1',
-    '#F45B69',
-    '#a4c73c'
-  ] }];
 
   constructor(
     private donationService: DonationService,
     private authService: AuthService
-  ) { }
+  ) {}
 
   ngOnInit() {
+    let barChartLabels = [];
+    let barChartData = [];
+    let pieChartLabels = [];
+    let pieChartData = [];
+
     this.authService.user.subscribe(data => {
       this.user = data;
 
       this.donationService.getDonationsById(this.user.uid).subscribe(data => {
         console.log(data);
         this.donations = data.data;
+
+        console.log(this.donations);
+
+        if (!this.donations || this.donations.length < 1) {
+          this.noDonations = true;
+          return;
+        }
 
         this.initiatives = this.donations.reduce((allInitiatives, initiative) => {
           if (initiative.initiativeName in allInitiatives) {
@@ -79,19 +92,56 @@ export class MyMetricsComponent implements OnInit {
           return allOrgs;
         }, {});
 
-        this.barChartLabels = Object.keys(this.orgs);
-        this.barChartData = (<any>Object).values(this.orgs);
+        console.log(this.orgs);
+        barChartLabels = Object.keys(this.orgs);
+        barChartData = (<any>Object).values(this.orgs);
 
-        console.log(this.barChartLabels);
-        console.log(this.barChartData);
+        this.barChart = barChartLabels.map((key, i) => {
+          return { name: key, value: barChartData[i]};
+        });
 
-        this.pieChartLabels = Object.keys(this.initiatives);
-        this.pieChartData = (<any>Object).values(this.initiatives);
+        pieChartLabels = Object.keys(this.initiatives);
+        pieChartData = (<any>Object).values(this.initiatives);
+
+        this.pieChart = pieChartLabels.map((key, i) => {
+          return { name: key, value: pieChartData[i]};
+        });
 
         this.isDataAvailable = true;
+        window.dispatchEvent(new Event('resize'));
       });
     });
+  }
 
-    console.log('user', this.user);
+
+
+  yAxisTickFormatting(label) {
+    return `$${label}`;
+  };
+
+  onResize(event) {
+    console.log(event);
+
+    if (this.isResizing) { return false; }
+
+    this.isResizing = true;
+
+    if (event.target.innerWidth < 768 || !this.isResizing) {
+      this.showYAxis = false;
+      this.showLegend = false;
+      this.showYAxisLabel = false;
+    } else if (event.target.innerWidth >= 768 || !this.isResizing){
+      this.showYAxis = true;
+      this.showLegend = true;
+      this.showYAxisLabel = true;
+    }
+
+    setTimeout(() => {
+      this.isResizing = false;
+    }, 2000);
+  }
+
+  onSelect(event) {
+    console.log(event);
   }
 }

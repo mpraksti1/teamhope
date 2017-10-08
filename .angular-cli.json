@@ -18,7 +18,10 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": ["styles.scss"],
+      "styles": [
+        "styles.scss",
+        "../node_modules/@swimlane/ngx-charts/release/index.css"
+      ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {

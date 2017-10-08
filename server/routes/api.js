@@ -1,8 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const sgMail = require('@sendgrid/mail');
-
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const User = require('../../models/user');
 const Org = require('../../models/org');
@@ -16,24 +13,6 @@ router.post('/', (req, res) => {
 
 router.post('/users', (req, res, next) => {
   console.log('REQUEST BODY', req.body);
-
-  const msg = {
-    to: 'givesimply.info@gmail.com',
-    from: 'test@example.com',
-    subject: 'Sending with SendGrid is Fun',
-    text: 'and easy to do anywhere, even with Node.js',
-    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-  };
-  console.log('HERES MESSAGE', msg);
-
-  sgMail.send(msg);
-
-  const user = new User({
-    userId: req.body.userId,
-    email: req.body.email,
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-  });
 
   user.save(
     (err, result) => {

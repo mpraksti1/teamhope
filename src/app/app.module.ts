@@ -30,6 +30,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { OrgsByInitiativePipe } from './pipes/orgs-by-initiative.pipe';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProfileEditComponent,
     MyMetricsComponent,
     AboutUsComponent,
-    OrgsByInitiativePipe
+    OrgsByInitiativePipe,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,

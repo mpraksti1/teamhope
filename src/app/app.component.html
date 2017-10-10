@@ -22,6 +22,9 @@
         <a class="navbar-item " href="/about-us" (click)="toggleMobileMenu()">
           About us
         </a>
+      <a class="navbar-item " href="/contact-us" (click)="toggleMobileMenu()">
+        Contact
+      </a>
     </div>
     <div class="navbar-end">
       <div class="field is-grouped" *ngIf="!(authService.user | async)">
